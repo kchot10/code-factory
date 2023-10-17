@@ -2,19 +2,21 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BoxAnimatorController : MonoBehaviour
 {
-    public GameObject box1;
-    public GameObject box2;
-    Animator animator1;
-    Animator animator2;
+    public GameObject[] boxs;
+    Animator[] animator;
     private bool isMove;
 
     private void Start()
     {
-        animator1 = box1.GetComponent<Animator>();
-        animator2 = box2.GetComponent<Animator>();
+        animator = new Animator[boxs.Length];
+        for (int i = 0; i < boxs.Length; i++)
+        {
+            animator[i] = boxs[i].GetComponent<Animator>();
+        }
         isMove = true;
     }
 
@@ -39,13 +41,17 @@ public class BoxAnimatorController : MonoBehaviour
     // 애니메이션 전환을 실행하는 함수
     public void PlayAnimation()
     {
-        animator1.SetBool("isMove", true);
-        animator2.SetBool("isMove", true);
+        for (int i = 0; i < animator.Length; i++)
+        {
+            animator[i].SetBool("isMove", true);
+        }
     }
 
     public void StopAnimation()
     {
-        animator1.SetBool("isMove", false);
-        animator2.SetBool("isMove", false);
+        for (int i = 0; i < animator.Length; i++)
+        {
+            animator[i].SetBool("isMove", false);
+        }
     }
 }
