@@ -47,13 +47,24 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private Sprite[] npcPortraitSprites;
 
+    
+    [Header("글로벌 UI 텍스트")]
     [SerializeField] private GameObject globalMessageUI;
     [SerializeField] private TextMeshProUGUI globalMessageNpcName;
     [SerializeField] private TextMeshProUGUI globalMessageText;
     [SerializeField] private Button globalMessageButton;
     [SerializeField] private TextMeshProUGUI globalMessageButtonText;
     [SerializeField] private Image globalMessagePortrait;
+    
+        [Header("글로벌2 UI 텍스트")]
+        [SerializeField] private GameObject global2MessageUI;
+        [SerializeField] private TextMeshProUGUI global2MessageNpcName;
+        [SerializeField] private TextMeshProUGUI global2MessageText;
+        [SerializeField] private Button global2MessageButton;
+        [SerializeField] private TextMeshProUGUI global2MessageButtonText;
+        [SerializeField] private Image global2MessagePortrait;
 
+    [Header("라디오 UI 텍스트")]
     [SerializeField] private GameObject radioMessageUI;
     [SerializeField] private TextMeshProUGUI radioMessageNpcName;
     [SerializeField] private TextMeshProUGUI radioMessageText;
@@ -101,13 +112,13 @@ public class UIManager : MonoBehaviour
             [NPC.Boss] = "사장",
         };
 
-        /*
+    
         _npcPortraits = new Dictionary<NPC, Sprite>()
         {
             [NPC.Tutorial] = npcPortraitSprites[0],
             [NPC.Boss] = npcPortraitSprites[1],
         };
-        */
+    
     }
 
     public void SetMsgIndex(int startTextIndex, int endTextIndex, NPC npcType)
@@ -129,7 +140,7 @@ public class UIManager : MonoBehaviour
         globalMessageNpcName.text = _npcNames[_talkNPC];
         globalMessageButtonText.text = "계속";
         ChangeMessageButtonEvent(() => ChangeMessageText(_npcTexts[_talkNPC]));
-       // ChangeMessagePortrait(_npcPortrait[_talkNPC]);
+        ChangeMessagePortrait(_npcPortraits[_talkNPC]);
         DOTweenManager.DoScaleToBig(globalMessageUI.transform, () => ChangeMessageText(_npcTexts[_talkNPC]));
     }
     
@@ -144,7 +155,7 @@ public class UIManager : MonoBehaviour
         radioMessageNpcName.text = _npcNames[_talkNPC];
         radioMessageButtonText.text = "닫기";
         ChangeMessageButtonEvent(() => ChangeMessageText(_npcTexts[_talkNPC]));
-     //   ChangeMessagePortrait(_npcPortrait[_talkNPC]);
+        ChangeMessagePortrait(_npcPortraits[_talkNPC]);
         DOTweenManager.DoScaleToBig(radioMessageUI.transform, () => ChangeMessageText(_npcTexts[_talkNPC]));
     }
 

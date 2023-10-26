@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+using XRController = UnityEngine.InputSystem.XR.XRController;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +15,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UIManager uiManager;
 
     public UIManager UIManager => uiManager;
+    
+    [SerializeField] private XRBaseController xrRightController;
+    [SerializeField] private XRBaseController xrLeftController;
 
     private void Awake()
     {
@@ -43,5 +48,15 @@ public class GameManager : MonoBehaviour
     {
         UIManager.SetMsgIndex(startTextIndex, endTextIndex, npcType);
         UIManager.EnableRadioMessageUI();
+    }
+
+    public void CallLeftControllerHaptic()
+    {
+        xrLeftController.SendHapticImpulse(0.2f, 0.5f);
+    }
+    
+    public void CallRightControllerHaptic()
+    {
+        xrRightController.SendHapticImpulse(0.2f, 0.5f);
     }
 }
