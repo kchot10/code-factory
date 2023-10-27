@@ -5,11 +5,14 @@ using UnityEngine;
 public class Stage4 : MonoBehaviour
 {
     [SerializeField] private ParticleSystem RubberyLiquidFX;
+    [SerializeField] private Animation Animation;
     private int _step2Count = 0;
+
 
     private void Process()
     {
         RubberyLiquidFX.Play();
+        Animation.Play();
     }
 
     public void IncreaseStep2Score()
