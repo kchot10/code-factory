@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Stage1 : MonoBehaviour
+public class Stage5 : MonoBehaviour
 {
     [SerializeField] private Animation Animation;
     [SerializeField] private Animation Animation2;
@@ -18,8 +16,8 @@ public class Stage1 : MonoBehaviour
 
     public void IncreaseStep2Score()
     {
-        _step2Count = Mathf.Clamp(_step2Count + 1, 0, 1);
-        if (_step2Count == 1)
+        _step2Count = Mathf.Clamp(_step2Count + 1, 0, 3);
+        if (_step2Count == 3)
         {
             Process();
         }
@@ -27,6 +25,6 @@ public class Stage1 : MonoBehaviour
 
     public void DecreaseStep2Score()
     {
-        _step2Count = Mathf.Clamp(_step2Count - 1, 0, 1);
+        _step2Count = Mathf.Clamp(_step2Count - 1, 0, 3);
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class BoxSocket : MonoBehaviour
+public class Stage4Socket : MonoBehaviour
 {
     public ObjectTypeEnum TargetObjectType;
 
@@ -13,14 +13,12 @@ public class BoxSocket : MonoBehaviour
 
     public void OnSelectSocket(SelectEnterEventArgs targetArgs)
     {
-        Debug.Log("OnSelectSocket recall");
         var objectType = targetArgs.interactableObject.transform.GetComponent<ObjectType>();
 
         if (objectType == null) return;
 
         if (objectType.Object_Type_Enum == TargetObjectType)
         {
-            Debug.Log("OnSelectSocket recall in");
             OnSokect?.Invoke();
         }
     }
