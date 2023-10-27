@@ -25,9 +25,9 @@ public class TutorialRoom : MonoBehaviour
 
     public void IncreaseTutorialStep2Score()
     {
-        _step2Count = Mathf.Clamp(_step2Count + 1, 0, 3); // _step2Count를 1 증가하고 0에서 3 사이로 제한
+        _step2Count = Mathf.Clamp(_step2Count + 1, 0, 1); // _step2Count를 1 증가하고 0에서 3 사이로 제한
 
-        if (_step2Count == 3)
+        if (_step2Count == 1)
         {
             TutorialExitDoorProcess();
         }
