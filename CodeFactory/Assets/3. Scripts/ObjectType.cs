@@ -4,7 +4,11 @@ public enum ObjectTypeEnum
 {
     Cube = 0,
     Cylinder,
-    Sphere
+    Sphere,
+    Stage4block1,
+    Stage4block2,
+    Stage4block3,
+    Stage4block4
 }
 
 
