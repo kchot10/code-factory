@@ -10,6 +10,9 @@ public class TutorialRoom : MonoBehaviour
     [SerializeField] private Animation tutorialExitDoorAnimation;
     [SerializeField] private Animation tutorialExitLightAnimation;
 
+
+    [SerializeField] private Animation tutorialMetalDoorAnimation;
+    
     private int _step2Count = 0;
 
 
@@ -22,6 +25,13 @@ public class TutorialRoom : MonoBehaviour
         tutorialExitLightAnimation.Play();
         // TODO : 사운드도 추가
     }
+
+    public void TutorialMetalDoorProcess(string clipName)
+    {
+        tutorialMetalDoorAnimation.Play(clipName);
+    }
+    
+
 
     public void IncreaseTutorialStep2Score()
     {
