@@ -17,8 +17,8 @@ public class Stage4 : MonoBehaviour
 
     public void IncreaseStep2Score()
     {
-        _step2Count = Mathf.Clamp(_step2Count + 1, 0, 4);
-        if (_step2Count == 4)
+        _step2Count = Mathf.Clamp(_step2Count + 1, 0, 3);
+        if (_step2Count == 3)
         {
             Process();
         }
@@ -26,6 +26,6 @@ public class Stage4 : MonoBehaviour
 
     public void DecreaseStep2Score()
     {
-        _step2Count = Mathf.Clamp(_step2Count - 1, 0, 4);
+        _step2Count = Mathf.Clamp(_step2Count - 1, 0, 3);
     }
 }
