@@ -8,7 +8,8 @@ public enum ObjectTypeEnum
     Stage4block1,
     Stage4block2,
     Stage4block3,
-    Stage4block4
+    Stage4block4,
+    Stage4block5
 }
 
 
