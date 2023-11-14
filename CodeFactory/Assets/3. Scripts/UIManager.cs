@@ -56,13 +56,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI globalMessageButtonText;
     [SerializeField] private Image globalMessagePortrait;
     
-        [Header("글로벌2 UI 텍스트")]
-        [SerializeField] private GameObject global2MessageUI;
-        [SerializeField] private TextMeshProUGUI global2MessageNpcName;
-        [SerializeField] private TextMeshProUGUI global2MessageText;
-        [SerializeField] private Button global2MessageButton;
-        [SerializeField] private TextMeshProUGUI global2MessageButtonText;
-        [SerializeField] private Image global2MessagePortrait;
+    [Header("옵션 UI 텍스트")]
+    [SerializeField] private GameObject global2MessageUI;
+    [SerializeField] private TextMeshProUGUI global2MessageNpcName;
+    [SerializeField] private TextMeshProUGUI global2MessageText;
+    [SerializeField] private Button global2MessageButton;
+    [SerializeField] private TextMeshProUGUI global2MessageButtonText;
+    [SerializeField] private Image global2MessagePortrait;
 
     [Header("라디오 UI 텍스트")]
     [SerializeField] private GameObject radioMessageUI;
