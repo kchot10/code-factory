@@ -101852,6 +101852,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animation: {fileID: 1190097284}
   Animation2: {fileID: 547020375}
+  clearAnimation: {fileID: 844138874}
 --- !u!1001 &698383626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -125137,6 +125138,7 @@ GameObject:
   - component: {fileID: 844138873}
   - component: {fileID: 844138872}
   - component: {fileID: 844138871}
+  - component: {fileID: 844138874}
   m_Layer: 0
   m_Name: clearCylinder
   m_TagString: Untagged
@@ -125153,7 +125155,7 @@ Transform:
   m_GameObject: {fileID: 844138869}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.36, y: 0.814, z: 0.355}
+  m_LocalPosition: {x: 0.36, y: 0.547, z: 0.355}
   m_LocalScale: {x: 0.18683, y: 0.11432127, z: 0.18683}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -125232,6 +125234,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844138869}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!111 &844138874
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 844138869}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 0d887aa3890ad2045a7b18c27a885647, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 0d887aa3890ad2045a7b18c27a885647, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &844626356
 GameObject:
   m_ObjectHideFlags: 0
@@ -189879,6 +189897,7 @@ GameObject:
   - component: {fileID: 1220041974}
   - component: {fileID: 1220041973}
   - component: {fileID: 1220041972}
+  - component: {fileID: 1220041975}
   m_Layer: 0
   m_Name: clearCylinder2
   m_TagString: Untagged
@@ -189895,7 +189914,7 @@ Transform:
   m_GameObject: {fileID: 1220041970}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.36, y: 0.814, z: 0.355}
+  m_LocalPosition: {x: 0.36, y: 0.543, z: 0.355}
   m_LocalScale: {x: 0.18683, y: 0.11432127, z: 0.18683}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -189974,6 +189993,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1220041970}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!111 &1220041975
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220041970}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 0d887aa3890ad2045a7b18c27a885647, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 0d887aa3890ad2045a7b18c27a885647, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!4 &1220508491 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4574911336446332, guid: 263fde0dc34078348954e122c3111b8c,
@@ -291460,6 +291495,7 @@ MonoBehaviour:
   Animation: {fileID: 326228662}
   Animation2: {fileID: 1125376795}
   Animation3: {fileID: 536297543}
+  clearAnimation: {fileID: 1220041975}
 --- !u!4 &1790458207 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4630427892602332, guid: 5864addef94c23c458de5835888882f7,

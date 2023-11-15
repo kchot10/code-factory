@@ -7,6 +7,7 @@ public class Stage3 : MonoBehaviour
     [SerializeField] private Animation Animation;
     [SerializeField] private Animation Animation2;
     [SerializeField] private Animation Animation3;
+    [SerializeField] private Animation clearAnimation;
     private int _step2Count = 0;
 
     private void Process()
@@ -14,6 +15,7 @@ public class Stage3 : MonoBehaviour
         Animation.Play();
         Animation2.Play();
         Animation3.Play();
+        clearAnimation.Play();
     }
 
     public void IncreaseStep2Score()
