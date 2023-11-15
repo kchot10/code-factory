@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Stage3 : MonoBehaviour
 {
-    [SerializeField] private Animation Animation;
-    [SerializeField] private Animation Animation2;
-    [SerializeField] private Animation Animation3;
+    [SerializeField] private Animator SmallShieldAnim;
+    [SerializeField] private Animator MiddleShieldAnim;
+    [SerializeField] private Animator BigShieldAnim;
     [SerializeField] private Animation clearAnimation;
     private int _step2Count = 0;
 
     private void Process()
     {
-        Animation.Play();
-        Animation2.Play();
-        Animation3.Play();
+        SmallShieldAnim.enabled = true;
+        MiddleShieldAnim.enabled = true;
+        BigShieldAnim.enabled = true;
         clearAnimation.Play();
     }
 
