@@ -19,8 +19,8 @@ public class Stage6 : MonoBehaviour
 
     public void IncreaseStep2Score()
     {
-        _step2Count = Mathf.Clamp(_step2Count + 1, 0,1);
-        if (_step2Count == 1)
+        _step2Count = Mathf.Clamp(_step2Count + 1, 0, 5);
+        if (_step2Count == 5)
         {
             Process();
         }
@@ -28,6 +28,6 @@ public class Stage6 : MonoBehaviour
 
     public void DecreaseStep2Score()
     {
-        _step2Count = Mathf.Clamp(_step2Count - 1, 0, 1);
+        _step2Count = Mathf.Clamp(_step2Count - 1, 0, 5);
     }
 }
