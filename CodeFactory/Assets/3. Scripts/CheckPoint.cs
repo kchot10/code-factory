@@ -6,11 +6,24 @@ using UnityEngine.Events;
 
 public class CheckPoint : MonoBehaviour
 {
-   // 실행할 이벤트 행동
+
+   [Header("접촉 시 실행한 이벤트 정보")]
    [SerializeField] private UnityEvent onTrigger;
    
+   [Header("Todo List 등록 이벤트")]
+   [SerializeField] private UnityEvent<UIManager.StageList> newTodoList;
    
-   [Header("대사 정보")]
+   [Header("Todo List 클리어 이벤트")]
+   [SerializeField] private UnityEvent<UIManager.StageList> clearTodoList;
+   
+   [Header("스테이지 힌트 등록 이벤트")]
+   [SerializeField] private UnityEvent<UIManager.StageList> setStageHint;
+   
+   [Header("스테이지 정보")] 
+   [SerializeField] private UIManager.StageList stageList;
+
+   [Header("대사 정보")] 
+   [SerializeField] private bool isNeedTalk;
    [SerializeField] private bool isGlobalText;
    [SerializeField] private int startTextIndex;
    [SerializeField] private int endTextIndex;
@@ -24,19 +37,32 @@ public class CheckPoint : MonoBehaviour
    {
       if (player.CompareTag("Player"))
       {
-         // 물체 이벤트 실행
+         // 접촉 이벤트 실행
          onTrigger?.Invoke();
          
-         // 대사 이벤트 실행
-         if (isGlobalText)
-         {
-            GameManager.Instance.CallGlobalMessage(startTextIndex, endTextIndex, npcType);
-         }
-         else
-         {
-            GameManager.Instance.CallRadioMessage(startTextIndex, endTextIndex, npcType);
-         } 
+         // 할일 목록 등록 이벤트
+         newTodoList?.Invoke(stageList);
          
+         // 할일 목록 클리어 이벤트
+         clearTodoList?.Invoke(stageList);
+         
+         // 힌트 이벤트
+         setStageHint?.Invoke(stageList);
+
+         // 대사가 필요하면
+         if (isNeedTalk)
+         {
+            // 대사 이벤트 실행
+            if (isGlobalText)
+            {
+               GameManager.Instance.CallGlobalMessage(startTextIndex, endTextIndex, npcType);
+            }
+            else
+            {
+               GameManager.Instance.CallRadioMessage(startTextIndex, endTextIndex, npcType);
+            } 
+         }
+
          Destroy(this.gameObject);
       }
    }
