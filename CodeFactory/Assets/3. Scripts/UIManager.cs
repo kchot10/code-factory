@@ -15,13 +15,14 @@ public class UIManager : MonoBehaviour
     {
         None = -1,
         Tutorial = 0,
-        Stage1 = 1,
-        Stage2 = 2,
-        Stage3 = 3,
-        Stage4 = 4,
-        Stage5 = 5,
-        Stage6 = 6,
-        Exit = 7,
+        GrabTutorial = 1,
+        Stage1 = 2,
+        Stage2 = 3,
+        Stage3 = 4,
+        Stage4 = 5,
+        Stage5 = 6,
+        Stage6 = 7,
+        Exit = 8,
     }
     
     public enum OptionListUI
@@ -174,6 +175,7 @@ public class UIManager : MonoBehaviour
         _todoListTexts = new Dictionary<StageList, string>()
         {
             [StageList.Tutorial] = "문을 열고 튜토리얼을 진행하자",
+            [StageList.GrabTutorial] = "3개의 물건들을 잡아서 넣자",
             [StageList.Stage1] = "1단계 튜토리얼을 진행하자",
             [StageList.Stage2] = "2단계 튜토리얼을 진행하자",
             [StageList.Stage3] = "3단계 튜토리얼을 진행하자",
@@ -184,7 +186,8 @@ public class UIManager : MonoBehaviour
 
         _hintTitleTexts = new Dictionary<StageList, string>()
         {
-            [StageList.Tutorial] = "튜토리얼",
+            [StageList.Tutorial] = "튜토리얼 # 1",
+            [StageList.GrabTutorial] = "튜토리얼 # 2",
             [StageList.Stage1] = "1 스테이지",
             [StageList.Stage2] = "2 스테이지",
             [StageList.Stage3] = "3 스테이지",
@@ -196,7 +199,8 @@ public class UIManager : MonoBehaviour
         
         _hintTexts = new Dictionary<StageList, string>()
         {
-            [StageList.Tutorial] = "● 튜토리얼 힌트 내용 ~~~",
+            [StageList.Tutorial] = "● 튜토리얼 # 1 힌트 내용 ~~~",
+            [StageList.GrabTutorial] = "● 튜토리얼 # 2 힌트 내용 ~~~",
             [StageList.Stage1] = "● 1스테이지 힌트 내용  ~~~",
             [StageList.Stage2] = "● 2스테이지 힌트 내용  ~~~",
             [StageList.Stage3] = "● 3스테이지 힌트 내용  ~~~",
