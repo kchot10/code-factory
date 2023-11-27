@@ -26,24 +26,12 @@ public class ResetButtonTrigger : MonoBehaviour
         }
     }
 
-    
-    /*
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("ResetButton") && !_delayTimeActive)
-        {
-            Debug.Log("리셋 버튼 원상복구!");
-            onReleased?.Invoke();
-            StartCoroutine(nameof(WaitResetButtonTrigger));
-        }
-    }
-    */
-
     private IEnumerator WaitResetButtonTrigger()
     {
         _delayTimeActive = true;
         yield return _delayTime;
         _delayTimeActive = false;
         restButtonCollider.enabled = true;
+        onReleased?.Invoke();
     }
 }

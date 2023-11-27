@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private XRBaseController xrRightController;
     [SerializeField] private XRBaseController xrLeftController;
     private Coroutine _repeatControllerHaptic;
+
+    [SerializeField] private LeftHandWatch leftHandWatch;
     
     public enum ControllerHand
     {
@@ -94,7 +96,7 @@ public class GameManager : MonoBehaviour
     /// <param name="stageList">클리어한 스테이지</param>
     public void ClearTodoListUpdate(UIManager.StageList stageList)
     {
-        uiManager.ClearTodoList(stageList);
+       // uiManager.ClearTodoList(stageList);
         QuestClear(stageList);
     }
 
@@ -203,7 +205,12 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
-    
+
+
+    public void EnableLeftHandWatchCollider()
+    {
+        leftHandWatch.EnableWatchCollider();
+    }
     
     public void ExitGameProgram()
     {

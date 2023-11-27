@@ -31,7 +31,7 @@ public class UIManager : MonoBehaviour
         optionUI = 0,
         toDoList = 1,
         hintUI = 2,
-        extiGameUI = 3
+        exitGameUI = 3
     }
     
     private string[] _globalTextStrings = new string[]
@@ -221,6 +221,7 @@ public class UIManager : MonoBehaviour
         {
             if(_lastOptionUi != null) CloseMessageUI(_lastOptionUi.gameObject, 0.25f);
             CloseMessageUI(optionUI, 0.25f);
+            GameManager.Instance.EnableLeftHandWatchCollider(); // 왼손 시계 콜라이더 활성화
         });
         
         todoListUiButton.onClick.AddListener(() => EnableOptionUI(OptionListUI.toDoList));
@@ -233,7 +234,7 @@ public class UIManager : MonoBehaviour
         hintUiButton.onClick.AddListener(() => EnableOptionUI(OptionListUI.hintUI));
         hintUiCloseButton.onClick.AddListener( () => CloseMessageUI(hintUI, 0.25f));
         
-        exitGameUiButton.onClick.AddListener( () => EnableOptionUI(OptionListUI.extiGameUI));
+        exitGameUiButton.onClick.AddListener( () => EnableOptionUI(OptionListUI.exitGameUI));
         exitGameCancelButton.onClick.AddListener( () => CloseMessageUI(exitGameUI, 0.25f));
         exitGameYesButton.onClick.AddListener(() => GameManager.Instance.ExitGameProgram());
         
@@ -296,7 +297,6 @@ public class UIManager : MonoBehaviour
 
         DOTweenManager.DoScaleToBig(radioMessageUI.transform, () =>
         {
-
             ChangeMessageText(_npcTexts[_talkNPC]);
         });
     }
@@ -388,18 +388,21 @@ public class UIManager : MonoBehaviour
         // 옵션 UI 객체 등록
         switch (optionListUI)
         {
-            case OptionListUI.optionUI : _lastOptionUi = optionUI.transform; break;
+            case OptionListUI.optionUI :
+                DOTweenManager.DoScaleToBig(optionUI.transform, null);
+                return;
             case OptionListUI.toDoList : 
                 _lastOptionUi = toDoListUI.transform;
                 HideTodoListObjects();
                 eventArg = ShowTodoListObjects;
                 break;
             case OptionListUI.hintUI : _lastOptionUi = hintUI.transform; break; 
-            case OptionListUI.extiGameUI : _lastOptionUi = exitGameUI.transform; break;
+            case OptionListUI.exitGameUI : _lastOptionUi = exitGameUI.transform; break;
             
             default: return;
         }
-
+        
+        
         // 옵션 관련 UI SetActive
         DOTweenManager.DoScaleToBig(_lastOptionUi.transform, eventArg);
     }
@@ -431,7 +434,7 @@ public class UIManager : MonoBehaviour
     /// To do List 클리어
     /// </summary>
     /// <param name="clearStage">클리어 스테이지 종류</param>
-    public void ClearTodoList(StageList clearStage)
+    private void ClearTodoList(StageList clearStage)
     {
         if (!_todoListObjects.ContainsKey(clearStage))
         {
@@ -442,6 +445,7 @@ public class UIManager : MonoBehaviour
         TodoListObject todoListObject = _todoListObjects[clearStage];
         
         todoListObject.ClearTodoList();
+        _todoListObjects.Remove(clearStage);
     }
 
     /// <summary>
@@ -463,7 +467,10 @@ public class UIManager : MonoBehaviour
             DOTweenManager.DoScaleToBig(currentTodoListObject.transform, () =>
             {
                 // 이미 클리어한 To do List인 경우 다시 연출 진행
-                if (clearStages[todoListObject.Key]) currentTodoListObject.ClearTodoList();
+                if (clearStages[todoListObject.Key])
+                {
+                    ClearTodoList(todoListObject.Key);
+                }
             });
 
             yield return _DELAY;
