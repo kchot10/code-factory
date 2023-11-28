@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         
         uiManager.UiButtonEventInit();
         
-                
+         /*       
         NewTodoListUpdate(UIManager.StageList.Tutorial);
         NewTodoListUpdate(UIManager.StageList.Stage1);
         NewTodoListUpdate(UIManager.StageList.Stage2);
@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
         
         ClearTodoListUpdate(UIManager.StageList.Tutorial);
         ClearTodoListUpdate(UIManager.StageList.Stage2);
+        */
     }
 
 
