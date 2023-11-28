@@ -12,11 +12,22 @@ public class Stage1 : MonoBehaviour
     [SerializeField] private Animation Animation3;
     private int _step2Count = 0;
 
-    private void Process()
+    private bool isGoal = true;
+
+    public void Process()
     {
-        Animation.Play();
-        Animation2.Play();
-        Animation3.Play();
+        if (isGoal)
+        {
+            Animation.Play();
+            Animation2.Play();
+            Animation3.Play();
+            GameManager.Instance.ClearTodoListUpdate(UIManager.StageList.Stage1);
+        }
+        else
+        {
+            
+        }
+  
     }
 
     public void IncreaseStep2Score()
