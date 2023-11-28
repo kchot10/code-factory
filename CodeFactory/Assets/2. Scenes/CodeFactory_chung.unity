@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.26793307, g: 0.46431145, b: 0.6133213, a: 1}
+  m_IndirectSpecularColor: {r: 0.26792946, g: 0.463935, b: 0.61439043, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1453,7 +1453,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &12437037
 Canvas:
   m_ObjectHideFlags: 0
@@ -97412,7 +97412,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD569\uACA9\uC785\uB2C8\uB2E4!"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7ba1c2f06a87c8f409df899f08d5c89e, type: 2}
   m_sharedMaterial: {fileID: -5694827729292592705, guid: 7ba1c2f06a87c8f409df899f08d5c89e,
@@ -221942,6 +221942,7 @@ MonoBehaviour:
   Animation: {fileID: 989735708}
   Animation2: {fileID: 699005215}
   Animation3: {fileID: 242656962}
+  Stage6Text: {fileID: 699005216}
 --- !u!1001 &1490644973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -250092,6 +250093,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animation: {fileID: 1297256629}
   Animation2: {fileID: 1969128837}
+  Stage7Text: {fileID: 1969128838}
 --- !u!1 &1724706957
 GameObject:
   m_ObjectHideFlags: 0
@@ -285979,7 +285981,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD569\uACA9\uC785\uB2C8\uB2E4!"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7ba1c2f06a87c8f409df899f08d5c89e, type: 2}
   m_sharedMaterial: {fileID: -5694827729292592705, guid: 7ba1c2f06a87c8f409df899f08d5c89e,
