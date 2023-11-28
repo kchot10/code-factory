@@ -6,7 +6,7 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Stage1_NPC
+  m_Name: Stage7_NPC
   m_Controller: {fileID: 9100000, guid: 45213fc7bcee1b7429a36bf69dce0b3e, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: c4e2bcae145839948b322449f6d34b84, type: 2}

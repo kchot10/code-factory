@@ -6,8 +6,8 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Stage1_NPC
+  m_Name: Stage5_NPC
   m_Controller: {fileID: 9100000, guid: 45213fc7bcee1b7429a36bf69dce0b3e, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: c4e2bcae145839948b322449f6d34b84, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 24d175800555f44589aa2fe8a4996323, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ecfb8b86f3e06411fbe6131de457ff7f, type: 2}
