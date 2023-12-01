@@ -8,14 +8,56 @@ public class Stage3 : MonoBehaviour
     [SerializeField] private Animator MiddleShieldAnim;
     [SerializeField] private Animator BigShieldAnim;
     [SerializeField] private Animation clearAnimation;
+    [SerializeField] private Material RedMaterial;
+    [SerializeField] private MeshRenderer CubeCheckMeshRenderer;
     private int _step2Count = 0;
+    private bool isGoal = false;
+    private static Material InitialMaterial;
 
-    private void Process()
+    private void Start()
+    {
+        InitialMaterial = CubeCheckMeshRenderer.material;
+    }
+
+    public void Process()
+    {
+        if (isGoal)
+        {
+            MachineOperation();
+        }
+        else
+        {
+            StartCoroutine(CubeFail());
+        }
+    }
+
+    private void MachineOperation()
     {
         SmallShieldAnim.enabled = true;
         MiddleShieldAnim.enabled = true;
         BigShieldAnim.enabled = true;
         clearAnimation.Play();
+        GameManager.Instance.ClearTodoListUpdate(UIManager.StageList.Stage3);
+        // Todo: 성공 사운드
+    }
+
+    private IEnumerator CubeSuccess()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            yield return new WaitForSeconds(0.3f);
+            CubeCheckMeshRenderer.material = null;
+            yield return new WaitForSeconds(0.3f);
+            CubeCheckMeshRenderer.material = InitialMaterial;
+        }
+    }
+
+    private IEnumerator CubeFail()
+    {
+        CubeCheckMeshRenderer.material = RedMaterial;
+        yield return new WaitForSeconds(1f);
+        CubeCheckMeshRenderer.material = InitialMaterial;
+        // Todo: 실패 사운드
     }
 
     public void IncreaseStep2Score()
@@ -23,7 +65,8 @@ public class Stage3 : MonoBehaviour
         _step2Count = Mathf.Clamp(_step2Count + 1, 0, 3);
         if (_step2Count == 3)
         {
-            Process();
+            isGoal = true;
+            StartCoroutine(CubeSuccess());
         }
     }
 
