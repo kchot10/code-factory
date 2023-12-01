@@ -23,26 +23,12 @@ public class PositionReset : MonoBehaviour
         }
     }
 
-    private void Process()
+    public void Process()
     {
         for (int i = 0; i < resetObjects.Length; i++)
         {
             resetObjects[i].transform.localPosition = initialPositions[i];
             resetObjects[i].transform.localRotation = initialRotations[i];
         }
-    }
-
-    public void IncreseResetScore()
-    {
-        _step2Count = Mathf.Clamp(_step2Count + 1, 0, 1);
-        if (_step2Count == 1)
-        {
-            Process();
-        }
-    }
-
-    public void DecreseResetScore()
-    {
-        _step2Count = Mathf.Clamp(_step2Count - 1, 0, 1);
     }
 }
