@@ -36,17 +36,6 @@ public class GameManager : MonoBehaviour
         _instance = this;
         
         uiManager.UiButtonEventInit();
-        
-         /*       
-        NewTodoListUpdate(UIManager.StageList.Tutorial);
-        NewTodoListUpdate(UIManager.StageList.Stage1);
-        NewTodoListUpdate(UIManager.StageList.Stage2);
-        NewTodoListUpdate(UIManager.StageList.Stage3);
-        NewTodoListUpdate(UIManager.StageList.Stage4);
-        
-        ClearTodoListUpdate(UIManager.StageList.Tutorial);
-        ClearTodoListUpdate(UIManager.StageList.Stage2);
-        */
     }
 
 
@@ -97,7 +86,6 @@ public class GameManager : MonoBehaviour
     /// <param name="stageList">클리어한 스테이지</param>
     public void ClearTodoListUpdate(UIManager.StageList stageList)
     {
-       // uiManager.ClearTodoList(stageList);
         QuestClear(stageList);
     }
 

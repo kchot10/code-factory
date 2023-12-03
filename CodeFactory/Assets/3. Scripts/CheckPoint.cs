@@ -19,8 +19,11 @@ public class CheckPoint : MonoBehaviour
    [Header("스테이지 힌트 등록 이벤트")]
    [SerializeField] private UnityEvent<UIManager.StageList> setStageHint;
    
-   [Header("스테이지 정보")] 
-   [SerializeField] private UIManager.StageList stageList;
+   [Header("Todo List 등록 스테이지 정보")] 
+   [SerializeField] private UIManager.StageList newStageList;
+   
+   [Header("Todo List 클리어 스테이지 정보")]
+   [SerializeField] private UIManager.StageList clearStageList;
 
    [Header("대사 정보")] 
    [SerializeField] private bool isNeedTalk;
@@ -41,13 +44,13 @@ public class CheckPoint : MonoBehaviour
          onTrigger?.Invoke();
          
          // 할일 목록 등록 이벤트
-         newTodoList?.Invoke(stageList);
+         newTodoList?.Invoke(newStageList);
          
          // 할일 목록 클리어 이벤트
-         clearTodoList?.Invoke(stageList);
+         clearTodoList?.Invoke(clearStageList);
          
          // 힌트 이벤트
-         setStageHint?.Invoke(stageList);
+         setStageHint?.Invoke(newStageList);
 
          // 대사가 필요하면
          if (isNeedTalk)
