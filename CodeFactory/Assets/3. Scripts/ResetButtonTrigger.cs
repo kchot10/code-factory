@@ -10,6 +10,8 @@ public class ResetButtonTrigger : MonoBehaviour
     [SerializeField] private UnityEvent onPressed;
     [Header("버튼이 돌아올 때")]
     [SerializeField] private UnityEvent onReleased;
+    [SerializeField] private AudioClip resetSound;
+    private AudioSource resetSFX;
 
     [Header("리셋 버튼 콜라이더")]
     [SerializeField] private BoxCollider restButtonCollider;
@@ -19,6 +21,10 @@ public class ResetButtonTrigger : MonoBehaviour
     {
         if (other.CompareTag("ResetButton") && !_delayTimeActive)
         {
+            resetSFX = gameObject.AddComponent<AudioSource>();
+            resetSFX.clip = resetSound;
+            resetSFX.spatialBlend = 1;
+            resetSFX.Play();
             Debug.Log("리셋 버튼 눌림!");
             restButtonCollider.enabled = false;
             onPressed?.Invoke();
