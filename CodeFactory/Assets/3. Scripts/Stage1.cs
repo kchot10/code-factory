@@ -14,18 +14,42 @@ public class Stage1 : MonoBehaviour
     [SerializeField] private Material RedMaterial;
     [SerializeField] private MeshRenderer CubeCheckMeshRenderer;
 
-    [SerializeField] private AudioSource moterSFX;
-    [SerializeField] private AudioSource conveyourbeltSFX;
-    [SerializeField] private AudioSource spraySFX;
-
-
     private int _step2Count = 0;
     private bool isGoal = false;
     private Material InitialMaterial;
 
+    private AudioSource ConveyorbeltSFX;
+    private AudioSource MoterSFX;
+    private AudioSource SpraySFX;
+
+    [SerializeField] private SoundManager.SoundList ConveyorbeltSound;
+    [SerializeField] private SoundManager.SoundList MoterSound;
+    [SerializeField] private SoundManager.SoundList SpraySound;
     private void Start()
     {
+        // 리셋 버튼 누르면 돌아갈 위치 저장
         InitialMaterial = CubeCheckMeshRenderer.material;
+
+        // SoundManager를 찾거나 만들어둔다.
+        SoundManager soundManager = FindObjectOfType<SoundManager>();
+        if (soundManager == null)
+        {
+            Debug.LogError("SoundManager not found in the scene.");
+            return;
+        }
+
+        // OnSelectSFX에 onSelectSound 할당
+        ConveyorbeltSFX = gameObject.AddComponent<AudioSource>();
+        ConveyorbeltSFX.clip = soundManager.GetSoundClip(ConveyorbeltSound);
+        ConveyorbeltSFX.spatialBlend = 1;
+        ConveyorbeltSFX.loop = true;
+        MoterSFX = gameObject.AddComponent<AudioSource>();
+        MoterSFX.clip = soundManager.GetSoundClip(MoterSound);
+        MoterSFX.spatialBlend = 1;
+        SpraySFX = gameObject.AddComponent<AudioSource>();
+        SpraySFX.clip = soundManager.GetSoundClip(SpraySound);
+        SpraySFX.spatialBlend = 1;
+        SpraySFX.loop = true;
     }
 
     public void Process()
@@ -48,9 +72,9 @@ public class Stage1 : MonoBehaviour
         Animation3.Play();
         GameManager.Instance.ClearTodoListUpdate(UIManager.StageList.Stage1);
         // Todo: 성공 사운드
-        moterSFX.Play();
-        conveyourbeltSFX.Play();
-        spraySFX.Play();
+        MoterSFX.Play();
+        ConveyorbeltSFX.Play();
+        SpraySFX.Play();
     }
 
     private IEnumerator CubeSuccess()
