@@ -15,10 +15,47 @@ public class Stage7 : MonoBehaviour
     private int _step2Count = 0;
     private bool isGoal = false;
     private static Material InitialMaterial;
+    private AudioSource ConveyorbeltSFX;
+    private AudioSource WhirlpoolSFX;
+    private AudioSource MoterSFX;
+    private AudioSource ChainsawLong;
+
+    [SerializeField] private SoundManager.SoundList ConveyorbeltSound;
+    [SerializeField] private SoundManager.SoundList WhirlpoolSound;
+    [SerializeField] private SoundManager.SoundList MoterSound;
+    [SerializeField] private SoundManager.SoundList ChainsawLongSound;
 
     private void Start()
     {
+        // 리셋 버튼 누르면 돌아갈 위치 저장
         InitialMaterial = CubeCheckMeshRenderer.material;
+
+        // SoundManager를 찾거나 만들어둔다.
+        SoundManager soundManager = FindObjectOfType<SoundManager>();
+        if (soundManager == null)
+        {
+            Debug.LogError("SoundManager not found in the scene.");
+            return;
+        }
+
+
+        // OnSelectSFX에 onSelectSound 할당
+        ConveyorbeltSFX = gameObject.AddComponent<AudioSource>();
+        ConveyorbeltSFX.clip = soundManager.GetSoundClip(ConveyorbeltSound);
+        ConveyorbeltSFX.spatialBlend = 1;
+        ConveyorbeltSFX.loop = true;
+        WhirlpoolSFX = gameObject.AddComponent<AudioSource>();
+        WhirlpoolSFX.clip = soundManager.GetSoundClip(WhirlpoolSound);
+        WhirlpoolSFX.spatialBlend = 1;
+        WhirlpoolSFX.loop = true;
+        MoterSFX = gameObject.AddComponent<AudioSource>();
+        MoterSFX.clip = soundManager.GetSoundClip(MoterSound);
+        MoterSFX.spatialBlend = 1;
+        ChainsawLong = gameObject.AddComponent<AudioSource>();
+        ChainsawLong.clip = soundManager.GetSoundClip(ChainsawLongSound);
+        ChainsawLong.volume = 0.5F;
+        ChainsawLong.spatialBlend = 1;
+        ChainsawLong.loop = true;
     }
 
     public void Process()
@@ -40,6 +77,10 @@ public class Stage7 : MonoBehaviour
         StartCoroutine(TextPlay());
         GameManager.Instance.ClearTodoListUpdate(UIManager.StageList.Exit);
         // Todo: 성공 사운드
+        ConveyorbeltSFX.Play();
+        WhirlpoolSFX.Play();
+        MoterSFX.Play();
+        ChainsawLong.Play();
     }
 
     private IEnumerator CubeSuccess()
