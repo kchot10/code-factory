@@ -13,10 +13,46 @@ public class Stage5 : MonoBehaviour
     private int _step2Count = 0;
     private bool isGoal = false;
     private static Material InitialMaterial;
+    private AudioSource CartoonBoingSFX;
+    private AudioSource MoterSFX;
+    private AudioSource SpraySFX;
+    private AudioSource SwooshSFX;
+
+    [SerializeField] private SoundManager.SoundList CartoonBoingSound;
+    [SerializeField] private SoundManager.SoundList MoterSound;
+    [SerializeField] private SoundManager.SoundList SpraySound;
+    [SerializeField] private SoundManager.SoundList SwooshSound;
 
     private void Start()
     {
+        // 리셋 버튼 누르면 돌아갈 위치 저장
         InitialMaterial = CubeCheckMeshRenderer.material;
+
+        // SoundManager를 찾거나 만들어둔다.
+        SoundManager soundManager = FindObjectOfType<SoundManager>();
+        if (soundManager == null)
+        {
+            Debug.LogError("SoundManager not found in the scene.");
+            return;
+        }
+
+
+        // OnSelectSFX에 onSelectSound 할당
+        CartoonBoingSFX = gameObject.AddComponent<AudioSource>();
+        CartoonBoingSFX.clip = soundManager.GetSoundClip(CartoonBoingSound);
+        CartoonBoingSFX.spatialBlend = 1;
+        CartoonBoingSFX.loop = true;
+        MoterSFX = gameObject.AddComponent<AudioSource>();
+        MoterSFX.clip = soundManager.GetSoundClip(MoterSound);
+        MoterSFX.spatialBlend = 1;
+        SpraySFX = gameObject.AddComponent<AudioSource>();
+        SpraySFX.clip = soundManager.GetSoundClip(SpraySound);
+        SpraySFX.spatialBlend = 1;
+        SpraySFX.loop = true;
+        SwooshSFX = gameObject.AddComponent<AudioSource>();
+        SwooshSFX.clip = soundManager.GetSoundClip(SwooshSound);
+        SwooshSFX.spatialBlend = 1;
+        SwooshSFX.loop = true;
     }
 
     public void Process()
@@ -38,6 +74,10 @@ public class Stage5 : MonoBehaviour
         Animation3.Play();
         GameManager.Instance.ClearTodoListUpdate(UIManager.StageList.Stage5);
         // Todo: 성공 사운드
+        CartoonBoingSFX.Play();
+        MoterSFX.Play();
+        SpraySFX.Play();
+        SwooshSFX.Play();
     }
 
     private IEnumerator CubeSuccess()
