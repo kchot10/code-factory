@@ -11,12 +11,12 @@ public class TutorialSocket : MonoBehaviour
     public UnityEvent OnSokect;
     public UnityEvent UnSokect;
 
-    [SerializeField] private AudioSource IncreaseSFX;
-    [SerializeField] private AudioSource DecreaseSFX;
+    [SerializeField] private AudioSource OnSelectSFX;
+    [SerializeField] private AudioSource OnUnSelectSFX;
 
     public void OnSelectSocket(SelectEnterEventArgs targetArgs)
     {
-        IncreaseSFX.Play();
+        OnSelectSFX.Play();
 
         var objectType = targetArgs.interactableObject.transform.GetComponent<ObjectType>();
 
@@ -32,7 +32,7 @@ public class TutorialSocket : MonoBehaviour
     public void OnUnSelectSocket(SelectExitEventArgs targetArgs)
     {
 
-        DecreaseSFX.Play();
+        OnUnSelectSFX.Play();
 
         var objectType = targetArgs.interactableObject.transform.GetComponent<ObjectType>();
 

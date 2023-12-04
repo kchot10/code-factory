@@ -11,8 +11,13 @@ public class BoxSocket : MonoBehaviour
     public UnityEvent OnSokect;
     public UnityEvent UnSokect;
 
+    [SerializeField] private AudioSource OnSelectSFX;
+    [SerializeField] private AudioSource OnUnSelectSFX;
+
     public void OnSelectSocket(SelectEnterEventArgs targetArgs)
     {
+        OnSelectSFX.Play();
+
         Debug.Log("OnSelectSocket recall");
         var objectType = targetArgs.interactableObject.transform.GetComponent<ObjectType>();
 
@@ -27,6 +32,8 @@ public class BoxSocket : MonoBehaviour
 
     public void OnUnSelectSocket(SelectExitEventArgs targetArgs)
     {
+        OnUnSelectSFX.Play();
+
         var objectType = targetArgs.interactableObject.transform.GetComponent<ObjectType>();
 
         if (objectType == null) return;

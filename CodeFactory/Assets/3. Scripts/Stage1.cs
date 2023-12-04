@@ -14,6 +14,11 @@ public class Stage1 : MonoBehaviour
     [SerializeField] private Material RedMaterial;
     [SerializeField] private MeshRenderer CubeCheckMeshRenderer;
 
+    [SerializeField] private AudioSource moterSFX;
+    [SerializeField] private AudioSource conveyourbeltSFX;
+    [SerializeField] private AudioSource spraySFX;
+
+
     private int _step2Count = 0;
     private bool isGoal = false;
     private Material InitialMaterial;
@@ -43,6 +48,9 @@ public class Stage1 : MonoBehaviour
         Animation3.Play();
         GameManager.Instance.ClearTodoListUpdate(UIManager.StageList.Stage1);
         // Todo: 성공 사운드
+        moterSFX.Play();
+        conveyourbeltSFX.Play();
+        spraySFX.Play();
     }
 
     private IEnumerator CubeSuccess()
