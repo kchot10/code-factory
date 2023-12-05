@@ -33,8 +33,8 @@ public class TutorialRoom : MonoBehaviour
     public void TutorialMetalDoorProcess(string clipName)
     {
         tutorialMetalDoorAnimation.Play(clipName);
-        SoundManager.PlayOnShotSound(tutorialDoorAudioSource, tutorialDoorAudioClips[0], 1f, false);
-        SoundManager.PlayOnShotSound(tutorialDoorAudioSource, tutorialDoorAudioClips[1], 1f, false);
+        UI_SoundManager.PlayOnShotSound(tutorialDoorAudioSource, tutorialDoorAudioClips[0], 1f, false);
+        UI_SoundManager.PlayOnShotSound(tutorialDoorAudioSource, tutorialDoorAudioClips[1], 1f, false);
        // SoundManager.PlayOnDelaySound(tutorialDoorAudioSource, tutorialDoorAudioClips[1], 5f, 1f);
     }
     

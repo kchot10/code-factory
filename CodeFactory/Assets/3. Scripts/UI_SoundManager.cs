@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundManager : MonoBehaviour
+public class UI_SoundManager : MonoBehaviour
 {
-    private static SoundManager _instance;
+    private static UI_SoundManager _instance;
     
     private void Awake()
     {
