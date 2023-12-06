@@ -16595,6 +16595,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 136885032}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &138400215 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19819218, guid: 341fc2e91226cc747a53965fecbee5c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 53732687}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &138536250
 GameObject:
   m_ObjectHideFlags: 0
@@ -35869,6 +35875,7 @@ MonoBehaviour:
   - {fileID: 603092975}
   - {fileID: 1665170797}
   - {fileID: 88151831}
+  resetButtonFX: {fileID: 1218632943}
 --- !u!1001 &276569011
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39605,6 +39612,7 @@ MonoBehaviour:
   - {fileID: 152336656}
   - {fileID: 2010184623}
   - {fileID: 554753591}
+  resetButtonFX: {fileID: 1945063061}
 --- !u!1 &305431584
 GameObject:
   m_ObjectHideFlags: 0
@@ -47929,10 +47937,10 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 0.44633204}
-  m_Center: {x: 2.8191893e-11, y: 0, z: -0.276834}
+  m_Size: {x: 1, y: 1, z: 0.98942214}
+  m_Center: {x: -5.1796546e-11, y: 0, z: -0.0052879876}
 --- !u!23 &376877538
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -55642,6 +55650,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConnectedAnchor.z
       value: 57.503136
+      objectReference: {fileID: 0}
+    - target: {fileID: 4177804883060088825, guid: 0ad4c7f20e23ff243a6e55ee4d0fd6ab,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.846
+      objectReference: {fileID: 0}
+    - target: {fileID: 4177804883060088825, guid: 0ad4c7f20e23ff243a6e55ee4d0fd6ab,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.926
       objectReference: {fileID: 0}
     - target: {fileID: 6127941613367440279, guid: 0ad4c7f20e23ff243a6e55ee4d0fd6ab,
         type: 3}
@@ -66210,6 +66228,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 452708790}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &452708793 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19898846, guid: f828b47b39be99849b37530c987975e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 452708790}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &453666575
 GameObject:
   m_ObjectHideFlags: 0
@@ -67009,6 +67033,12 @@ PrefabInstance:
 --- !u!4 &461888823 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 434340, guid: 341fc2e91226cc747a53965fecbee5c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 461888822}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &461888825 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19819218, guid: 341fc2e91226cc747a53965fecbee5c6,
     type: 3}
   m_PrefabInstance: {fileID: 461888822}
   m_PrefabAsset: {fileID: 0}
@@ -72137,8 +72167,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.2496275, y: 1, z: 1}
+  m_Center: {x: -0.124813944, y: 0.000013316776, z: 0.000000011533498}
 --- !u!23 &510820132
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -73328,6 +73358,13 @@ MonoBehaviour:
   ConveyorbeltSound: 1
   MoterSound: 2
   SpraySound: 3
+  MachinFX:
+  - {fileID: 461888825}
+  - {fileID: 1212972800}
+  - {fileID: 1422516409}
+  - {fileID: 980702408}
+  - {fileID: 842864201}
+  - {fileID: 138400215}
 --- !u!114 &521435119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73347,6 +73384,7 @@ MonoBehaviour:
   - {fileID: 1374078881}
   - {fileID: 255470076}
   - {fileID: 53929420}
+  resetButtonFX: {fileID: 1973102245}
 --- !u!1 &523025515
 GameObject:
   m_ObjectHideFlags: 0
@@ -75883,6 +75921,12 @@ PrefabInstance:
 --- !u!4 &550869598 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 409988, guid: 7b117ab47ae99e74fbb811d488c1eb17,
+    type: 3}
+  m_PrefabInstance: {fileID: 550869597}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &550869599 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19825070, guid: 7b117ab47ae99e74fbb811d488c1eb17,
     type: 3}
   m_PrefabInstance: {fileID: 550869597}
   m_PrefabAsset: {fileID: 0}
@@ -78841,6 +78885,7 @@ MonoBehaviour:
   - {fileID: 1153753512}
   - {fileID: 1787704632}
   - {fileID: 1421164976}
+  resetButtonFX: {fileID: 1735192691}
 --- !u!1 &565204261
 GameObject:
   m_ObjectHideFlags: 0
@@ -79219,6 +79264,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 567713591}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2000901872}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -113255,6 +113312,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 841819926}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &842864201 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19819218, guid: 341fc2e91226cc747a53965fecbee5c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 176894576}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &845842689
 GameObject:
   m_ObjectHideFlags: 0
@@ -113338,6 +113401,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 845842689}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &845853679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5211932478845493906, guid: b3dad5fe731dfeb48935f689c5f4163c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1829969424}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &845853683
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845853679}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5999999, y: 0.29972082, z: 4.0478544}
+  m_Center: {x: 0, y: 0, z: -0.0000038146973}
 --- !u!1001 &846056057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -126602,6 +126692,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 980702405}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &980702408 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19819218, guid: 341fc2e91226cc747a53965fecbee5c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 980702405}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &980759314
 GameObject:
   m_ObjectHideFlags: 0
@@ -130439,6 +130535,12 @@ PrefabInstance:
 --- !u!4 &1011859889 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 409988, guid: 7b117ab47ae99e74fbb811d488c1eb17,
+    type: 3}
+  m_PrefabInstance: {fileID: 1011859888}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1011859890 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19825070, guid: 7b117ab47ae99e74fbb811d488c1eb17,
     type: 3}
   m_PrefabInstance: {fileID: 1011859888}
   m_PrefabAsset: {fileID: 0}
@@ -145864,7 +145966,7 @@ PrefabInstance:
     - target: {fileID: 4489129692359040850, guid: f7c8ba2107a9fef449c3d6aad68d42da,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.811
+      value: -0.836
       objectReference: {fileID: 0}
     - target: {fileID: 4489129692359040850, guid: f7c8ba2107a9fef449c3d6aad68d42da,
         type: 3}
@@ -145874,7 +145976,7 @@ PrefabInstance:
     - target: {fileID: 4489129692359040850, guid: f7c8ba2107a9fef449c3d6aad68d42da,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.382
+      value: -0.295
       objectReference: {fileID: 0}
     - target: {fileID: 4489129692359040850, guid: f7c8ba2107a9fef449c3d6aad68d42da,
         type: 3}
@@ -145935,12 +146037,12 @@ PrefabInstance:
         type: 3}
       propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 565106072}
+      objectReference: {fileID: 565106073}
     - target: {fileID: 7685020529158669275, guid: f7c8ba2107a9fef449c3d6aad68d42da,
         type: 3}
       propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 396774897}
+      objectReference: {fileID: 1735192691}
     - target: {fileID: 7685020529158669275, guid: f7c8ba2107a9fef449c3d6aad68d42da,
         type: 3}
       propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -145964,12 +146066,12 @@ PrefabInstance:
     - target: {fileID: 7685020529158669275, guid: f7c8ba2107a9fef449c3d6aad68d42da,
         type: 3}
       propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Stage6, Assembly-CSharp
+      value: PositionReset, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7685020529158669275, guid: f7c8ba2107a9fef449c3d6aad68d42da,
         type: 3}
       propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.AudioSource, UnityEngine
+      value: UnityEngine.ParticleSystem, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7685020529158669275, guid: f7c8ba2107a9fef449c3d6aad68d42da,
         type: 3}
@@ -148518,6 +148620,8 @@ MonoBehaviour:
   ConveyorbeltSound: 1
   MoterSound: 2
   SpraySound: 3
+  MachinFX:
+  - {fileID: 1203638029}
 --- !u!114 &1121378464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148532,6 +148636,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resetObjects:
   - {fileID: 1352444261}
+  resetButtonFX: {fileID: 550869599}
 --- !u!1001 &1121412794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -161970,6 +162075,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1148919353}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &1148919355 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19825070, guid: 7b117ab47ae99e74fbb811d488c1eb17,
+    type: 3}
+  m_PrefabInstance: {fileID: 1148919353}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1148966489
 GameObject:
   m_ObjectHideFlags: 0
@@ -163665,6 +163776,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1160150023}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2035237527}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -173670,6 +173793,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1202726701}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &1203638029 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19857662, guid: 042bead5c0559e840801704d1e092fd3,
+    type: 3}
+  m_PrefabInstance: {fileID: 248495494}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1204134486
 GameObject:
   m_ObjectHideFlags: 0
@@ -174405,6 +174534,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1212972797}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &1212972800 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19819218, guid: 341fc2e91226cc747a53965fecbee5c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1212972797}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1213123321
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -175122,6 +175257,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4120943256293174, guid: cacfdfa892f00774983c72d50cbd136d,
     type: 3}
   m_PrefabInstance: {fileID: 1217224482}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1218632943 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19825070, guid: 7b117ab47ae99e74fbb811d488c1eb17,
+    type: 3}
+  m_PrefabInstance: {fileID: 158801961}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1218733741
 PrefabInstance:
@@ -188375,6 +188516,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19809874, guid: acee4f4e191fea8479aad0b4b8e1dc18, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19809874, guid: acee4f4e191fea8479aad0b4b8e1dc18, type: 3}
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
@@ -188470,6 +188615,12 @@ PrefabInstance:
 --- !u!4 &1305287399 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 403582, guid: acee4f4e191fea8479aad0b4b8e1dc18,
+    type: 3}
+  m_PrefabInstance: {fileID: 1305287398}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1305287401 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19809874, guid: acee4f4e191fea8479aad0b4b8e1dc18,
     type: 3}
   m_PrefabInstance: {fileID: 1305287398}
   m_PrefabAsset: {fileID: 0}
@@ -191975,13 +192126,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4450023097571595666, guid: d181aeca8a9e6ca4faae8b513fd4dfbe,
         type: 3}
+      propertyPath: m_Size.x
+      value: 6.892009
+      objectReference: {fileID: 0}
+    - target: {fileID: 4450023097571595666, guid: d181aeca8a9e6ca4faae8b513fd4dfbe,
+        type: 3}
       propertyPath: m_Size.z
       value: 2.755764
       objectReference: {fileID: 0}
     - target: {fileID: 4450023097571595666, guid: d181aeca8a9e6ca4faae8b513fd4dfbe,
         type: 3}
+      propertyPath: m_Center.x
+      value: -0.70078146
+      objectReference: {fileID: 0}
+    - target: {fileID: 4450023097571595666, guid: d181aeca8a9e6ca4faae8b513fd4dfbe,
+        type: 3}
       propertyPath: m_Center.z
-      value: -0.08133644
+      value: -0.0813365
       objectReference: {fileID: 0}
     - target: {fileID: 5132301619146137075, guid: d181aeca8a9e6ca4faae8b513fd4dfbe,
         type: 3}
@@ -195671,7 +195832,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 452708793}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -203638,6 +203811,12 @@ PrefabInstance:
 --- !u!4 &1422516407 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 434340, guid: 341fc2e91226cc747a53965fecbee5c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1422516406}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1422516409 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19819218, guid: 341fc2e91226cc747a53965fecbee5c6,
     type: 3}
   m_PrefabInstance: {fileID: 1422516406}
   m_PrefabAsset: {fileID: 0}
@@ -224238,6 +224417,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1588943925}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &1588943928 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198893393215934218, guid: f683447c6570076418716c53d120168a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1588943925}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1591771092
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -237297,6 +237482,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1036742955}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &1727092278 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19819218, guid: 341fc2e91226cc747a53965fecbee5c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 315603422}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1728929889
 GameObject:
   m_ObjectHideFlags: 0
@@ -237790,6 +237981,12 @@ PrefabInstance:
 --- !u!4 &1735192689 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 409988, guid: 7b117ab47ae99e74fbb811d488c1eb17,
+    type: 3}
+  m_PrefabInstance: {fileID: 1735192688}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1735192691 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19825070, guid: 7b117ab47ae99e74fbb811d488c1eb17,
     type: 3}
   m_PrefabInstance: {fileID: 1735192688}
   m_PrefabAsset: {fileID: 0}
@@ -245019,6 +245216,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2020318325}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -246947,6 +247156,10 @@ PrefabInstance:
     - target: {fileID: 403582, guid: acee4f4e191fea8479aad0b4b8e1dc18, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19809874, guid: acee4f4e191fea8479aad0b4b8e1dc18, type: 3}
+      propertyPath: looping
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19809874, guid: acee4f4e191fea8479aad0b4b8e1dc18, type: 3}
       propertyPath: playOnAwake
@@ -249260,7 +249473,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -5211932478845493906, guid: b3dad5fe731dfeb48935f689c5f4163c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 845853683}
   m_SourcePrefab: {fileID: 100100000, guid: b3dad5fe731dfeb48935f689c5f4163c, type: 3}
 --- !u!4 &1829969425 stripped
 Transform:
@@ -259924,6 +260141,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1913174944}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &1916734494 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19809874, guid: acee4f4e191fea8479aad0b4b8e1dc18,
+    type: 3}
+  m_PrefabInstance: {fileID: 1804602945}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1918479240
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -262962,6 +263185,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1944800497}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &1945063061 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19825070, guid: 7b117ab47ae99e74fbb811d488c1eb17,
+    type: 3}
+  m_PrefabInstance: {fileID: 311089116}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1945451750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -265878,6 +266107,12 @@ PrefabInstance:
 --- !u!4 &1973102244 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 409988, guid: 7b117ab47ae99e74fbb811d488c1eb17,
+    type: 3}
+  m_PrefabInstance: {fileID: 1973102243}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1973102245 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19825070, guid: 7b117ab47ae99e74fbb811d488c1eb17,
     type: 3}
   m_PrefabInstance: {fileID: 1973102243}
   m_PrefabAsset: {fileID: 0}
@@ -268917,6 +269152,12 @@ PrefabInstance:
 --- !u!4 &2000901870 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 419440, guid: cc4edba986607ba48b17927b27d25e4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2000901869}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &2000901872 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19855088, guid: cc4edba986607ba48b17927b27d25e4e,
     type: 3}
   m_PrefabInstance: {fileID: 2000901869}
   m_PrefabAsset: {fileID: 0}
@@ -272389,6 +272630,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2020208219}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &2020318325 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19855088, guid: cc4edba986607ba48b17927b27d25e4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 620841215}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2021173115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -273758,6 +274005,10 @@ MonoBehaviour:
   ConveyorbeltSound: 1
   MoterSound: 2
   WaterSound: 8
+  MachinFX:
+  - {fileID: 1588943928}
+  - {fileID: 1916734494}
+  - {fileID: 1305287401}
 --- !u!114 &2032457214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273774,6 +274025,7 @@ MonoBehaviour:
   - {fileID: 1160150021}
   - {fileID: 567713589}
   - {fileID: 1786391100}
+  resetButtonFX: {fileID: 1148919355}
 --- !u!1001 &2033376939
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -274167,6 +274419,12 @@ PrefabInstance:
 --- !u!4 &2035237525 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 419440, guid: cc4edba986607ba48b17927b27d25e4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2035237524}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &2035237527 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 19855088, guid: cc4edba986607ba48b17927b27d25e4e,
     type: 3}
   m_PrefabInstance: {fileID: 2035237524}
   m_PrefabAsset: {fileID: 0}
@@ -280351,6 +280609,8 @@ MonoBehaviour:
   ConveyorbeltSound: 1
   MoterSound: 2
   SpraySound: 3
+  MachinFX:
+  - {fileID: 1727092278}
 --- !u!114 &2099343236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280367,6 +280627,7 @@ MonoBehaviour:
   - {fileID: 370690460}
   - {fileID: 252397875}
   - {fileID: 997271648}
+  resetButtonFX: {fileID: 1011859890}
 --- !u!1001 &2100914815
 PrefabInstance:
   m_ObjectHideFlags: 0
