@@ -28,6 +28,8 @@ public class TutorialRoom : MonoBehaviour
         tutorialExitLightAnimation.Play();
         tutorialExitDoorSmokeSFX.Play();
         tutorialExitDoorWarningAlarmSFX.Play();
+        GameManager.Instance.ClearTodoListUpdate(UIManager.StageList.GrabTutorial);
+        GameManager.Instance.CallGlobalMessage(7, 7, UIManager.NPC.Boss);
     }
 
     public void TutorialMetalDoorProcess(string clipName)
