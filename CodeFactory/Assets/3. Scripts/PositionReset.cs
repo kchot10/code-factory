@@ -10,6 +10,8 @@ public class PositionReset : MonoBehaviour
     private Quaternion[] initialRotations;
     private int _step2Count = 0;
 
+    [SerializeField] private ParticleSystem resetButtonFX;
+
 
     void Start()
     {
@@ -25,6 +27,7 @@ public class PositionReset : MonoBehaviour
 
     public void Process()
     {
+        resetButtonFX.Play();
         for (int i = 0; i < resetObjects.Length; i++)
         {
             resetObjects[i].transform.localPosition = initialPositions[i];

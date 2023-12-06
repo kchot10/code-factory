@@ -21,6 +21,8 @@ public class Stage3 : MonoBehaviour
     [SerializeField] private SoundManager.SoundList MoterSound;
     [SerializeField] private SoundManager.SoundList SpraySound;
 
+    [SerializeField] private ParticleSystem[] MachinFX;
+
     private void Start()
     {
         // 리셋 버튼 누르면 돌아갈 위치 저장
@@ -71,6 +73,11 @@ public class Stage3 : MonoBehaviour
         ConveyorbeltSFX.Play();
         MoterSFX.Play();
         SpraySFX.Play();
+
+        foreach (var particle in MachinFX)
+        {
+            particle.Play();
+        }
     }
 
     private IEnumerator CubeSuccess()

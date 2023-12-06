@@ -21,6 +21,9 @@ public class Stage2 : MonoBehaviour
     [SerializeField] private SoundManager.SoundList ConveyorbeltSound;
     [SerializeField] private SoundManager.SoundList MoterSound;
     [SerializeField] private SoundManager.SoundList SpraySound;
+
+    [SerializeField] private ParticleSystem[] MachinFX;
+
     private void Start()
     {
         // ���� ��ư ������ ���ư� ��ġ ����
@@ -70,6 +73,11 @@ public class Stage2 : MonoBehaviour
         ConveyorbeltSFX.Play();
         MoterSFX.Play();
         SpraySFX.Play();
+
+        foreach (var particle in MachinFX)
+        {
+            particle.Play();
+        }
     }
 
     private IEnumerator CubeSuccess()
