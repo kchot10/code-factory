@@ -1,23 +1,45 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class UI_SoundManager : MonoBehaviour
 {
-    private static UI_SoundManager _instance;
-    
+
+    [SerializeField] private AudioSource radioUiAudioSource;
+    [SerializeField] private AudioSource optionUiAudioSource;
+
     private void Awake()
     {
-        if (_instance == null)
+        radioUiAudioSource.loop = true;
+        optionUiAudioSource.loop = false;
+    }
+
+    public void ControllerRadioUiSound(bool isPlay)
+    {
+        if (isPlay)
         {
-            _instance = this;
+            radioUiAudioSource.Play();
         }
         else
         {
-            Destroy(gameObject);
+            radioUiAudioSource.Stop();
         }
     }
     
+    public void ControllerOptionUiSound(bool isPlay)
+    {
+        if (isPlay)
+        {
+            optionUiAudioSource.Play();
+        }
+        else
+        {
+            optionUiAudioSource.Stop();
+        }
+    }
+
+    /*
     public static void PlaySound(AudioSource targetAudioSource, AudioClip audioClip, float volume, bool isLoop)
     {
         targetAudioSource.clip = audioClip;
@@ -41,7 +63,7 @@ public class UI_SoundManager : MonoBehaviour
         targetAudioSource.clip = audioClip;
 
         // 코루틴 시작
-        _instance.StartCoroutine(_instance.PlayDelayed(targetAudioSource, delayTime));
+        //_instance.StartCoroutine(_instance.PlayDelayed(targetAudioSource, delayTime));
     }
 
     private IEnumerator PlayDelayed(AudioSource audioSource, float delayTime)
@@ -49,4 +71,5 @@ public class UI_SoundManager : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
         audioSource.Play();
     }
+    */
 }

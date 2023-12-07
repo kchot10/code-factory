@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Stage2 : MonoBehaviour
@@ -23,6 +24,9 @@ public class Stage2 : MonoBehaviour
     [SerializeField] private SoundManager.SoundList SpraySound;
 
     [SerializeField] private ParticleSystem[] MachinFX;
+
+    [SerializeField] private TextMeshProUGUI npcText;
+    [SerializeField] private Collider leverCollider;
 
     private void Start()
     {
@@ -65,6 +69,8 @@ public class Stage2 : MonoBehaviour
 
     private void MachineOperation()
     {
+        GameManager.Instance.UIManager.ChangeStageNpcText(4, npcText, UIManager.NPC.Garry);
+        leverCollider.enabled = false;
         Animation.Play();
         Animation2.Play();
         clearAnimation.Play();

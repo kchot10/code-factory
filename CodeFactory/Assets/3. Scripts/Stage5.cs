@@ -22,6 +22,8 @@ public class Stage5 : MonoBehaviour
     [SerializeField] private SoundManager.SoundList SpraySound;
     [SerializeField] private SoundManager.SoundList SwooshSound;
 
+    [SerializeField] private Collider leverCollider;        
+    
     private void Start()
     {
         // ���� ��ư ������ ���ư� ��ġ ����
@@ -68,6 +70,7 @@ public class Stage5 : MonoBehaviour
 
     private void MachineOperation()
     {
+        leverCollider.enabled = false;
         Animation.Play();
         Animation2.Play();
         Animation3.Play();

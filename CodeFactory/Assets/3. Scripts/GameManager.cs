@@ -12,7 +12,11 @@ public class GameManager : MonoBehaviour
     public static  GameManager Instance => _instance;
     
     [SerializeField] private UIManager uiManager;
+    [SerializeField] private UI_SoundManager uiSoundManager;
+    [SerializeField] private StageItemManager stageItemManager;
     public UIManager UIManager => uiManager;
+    public UI_SoundManager UISoundManager => uiSoundManager;
+    public StageItemManager StageItemManager => stageItemManager;
 
     private Dictionary<UIManager.StageList, bool> _playerQuestStages = new Dictionary<UIManager.StageList, bool>();
 
@@ -60,7 +64,6 @@ public class GameManager : MonoBehaviour
     
     public void CallRadioMessage(int startTextIndex, int endTextIndex, UIManager.NPC npcType)
     {
-        // Todo : 전화 수신음 
         UIManager.SetMsgIndex(startTextIndex, endTextIndex, npcType);
         UIManager.EnableCallingUI();
     }
@@ -134,6 +137,11 @@ public class GameManager : MonoBehaviour
         return _playerQuestStages;
     }
 
+    public void ClearGame()
+    {
+        
+    }
+    
     #region VR 컨트롤러 진동
 
     public void CallLeftControllerHaptic()

@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -462,10 +461,11 @@ public class UIManager : MonoBehaviour
         
         callerAcceptButton.onClick.AddListener( () =>
         {
+            // 전화 알림음 중단
+            GameManager.Instance.UISoundManager.ControllerRadioUiSound(false);
             // 전화 진동 효과 중단
             GameManager.Instance.StopControllerRepeatHaptic();
             CloseMessageUI(callingMessageUI.gameObject, 0f);
-            // Todo : 전화 받기 클릭 효과음
             EnableRadioMessageUI();
         });
     }
@@ -531,6 +531,9 @@ public class UIManager : MonoBehaviour
         // 발신자 이름, 초상화 변경
         callerNameText.text = "발신자 : " + _npcNames[_talkNPC];
         callerPortrait.sprite = _npcPortraits[_talkNPC];
+        
+        // 전화 알림을 실행
+        GameManager.Instance.UISoundManager.ControllerRadioUiSound(true);
         
         DOTweenManager.DoScaleToBig(callingMessageUI.transform, () =>
         {

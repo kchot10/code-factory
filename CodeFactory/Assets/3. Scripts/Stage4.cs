@@ -21,12 +21,14 @@ public class Stage4 : MonoBehaviour
 
     [SerializeField] private ParticleSystem[] MachinFX;
 
+    [SerializeField] private Collider leverCollider;        
+    
     private void Start()
     {
-        // ¸®¼Â ¹öÆ° ´©¸£¸é µ¹¾Æ°¥ À§Ä¡ ÀúÀå
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
         InitialMaterial = CubeCheckMeshRenderer.material;
 
-        // SoundManager¸¦ Ã£°Å³ª ¸¸µé¾îµÐ´Ù.
+        // SoundManagerï¿½ï¿½ Ã£ï¿½Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½.
         SoundManager soundManager = FindObjectOfType<SoundManager>();
         if (soundManager == null)
         {
@@ -34,7 +36,7 @@ public class Stage4 : MonoBehaviour
             return;
         }
 
-        // OnSelectSFX¿¡ onSelectSound ÇÒ´ç
+        // OnSelectSFXï¿½ï¿½ onSelectSound ï¿½Ò´ï¿½
         ConveyorbeltSFX = gameObject.AddComponent<AudioSource>();
         ConveyorbeltSFX.clip = soundManager.GetSoundClip(ConveyorbeltSound);
         ConveyorbeltSFX.spatialBlend = 1;
@@ -62,10 +64,11 @@ public class Stage4 : MonoBehaviour
 
     private void MachineOperation()
     {
+        leverCollider.enabled = false;
         RubberyLiquidFX.Play();
         Animation.Play();
         GameManager.Instance.ClearTodoListUpdate(UIManager.StageList.Stage4);
-        // Todo: ¼º°ø »ç¿îµå
+        // Todo: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         ConveyorbeltSFX.Play();
         MoterSFX.Play();
         WaterSFX.Play();
@@ -92,7 +95,7 @@ public class Stage4 : MonoBehaviour
         CubeCheckMeshRenderer.material = RedMaterial;
         yield return new WaitForSeconds(1f);
         CubeCheckMeshRenderer.material = InitialMaterial;
-        // Todo: ½ÇÆÐ »ç¿îµå
+        // Todo: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
     public void IncreaseStep2Score()

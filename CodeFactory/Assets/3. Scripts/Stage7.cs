@@ -24,13 +24,15 @@ public class Stage7 : MonoBehaviour
     [SerializeField] private SoundManager.SoundList WhirlpoolSound;
     [SerializeField] private SoundManager.SoundList MoterSound;
     [SerializeField] private SoundManager.SoundList ChainsawLongSound;
+    
+    [SerializeField] private Collider leverCollider;      
 
     private void Start()
     {
-        // ¸®¼Â ¹öÆ° ´©¸£¸é µ¹¾Æ°¥ À§Ä¡ ÀúÀå
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
         InitialMaterial = CubeCheckMeshRenderer.material;
 
-        // SoundManager¸¦ Ã£°Å³ª ¸¸µé¾îµÐ´Ù.
+        // SoundManagerï¿½ï¿½ Ã£ï¿½Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½.
         SoundManager soundManager = FindObjectOfType<SoundManager>();
         if (soundManager == null)
         {
@@ -39,7 +41,7 @@ public class Stage7 : MonoBehaviour
         }
 
 
-        // OnSelectSFX¿¡ onSelectSound ÇÒ´ç
+        // OnSelectSFXï¿½ï¿½ onSelectSound ï¿½Ò´ï¿½
         ConveyorbeltSFX = gameObject.AddComponent<AudioSource>();
         ConveyorbeltSFX.clip = soundManager.GetSoundClip(ConveyorbeltSound);
         ConveyorbeltSFX.spatialBlend = 1;
@@ -72,11 +74,12 @@ public class Stage7 : MonoBehaviour
 
     private void MachineOperation()
     {
+        leverCollider.enabled = false;
         Animation.Play();
         Animation2.Play();
         StartCoroutine(TextPlay());
         /*GameManager.Instance.ClearTodoListUpdate(UIManager.StageList.Exit);*/
-        // Todo: ¼º°ø »ç¿îµå
+        // Todo: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         ConveyorbeltSFX.Play();
         WhirlpoolSFX.Play();
         MoterSFX.Play();
@@ -99,17 +102,17 @@ public class Stage7 : MonoBehaviour
         CubeCheckMeshRenderer.material = RedMaterial;
         yield return new WaitForSeconds(1f);
         CubeCheckMeshRenderer.material = InitialMaterial;
-        // Todo: ½ÇÆÐ »ç¿îµå
+        // Todo: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
     private IEnumerator TextPlay()
     {
         for (int i = 0; i < 6; i++)
         {
-            Stage7Text.text += "µµ»ö ½ÃÀÛ\n";
+            Stage7Text.text += "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½\n";
             yield return new WaitForSeconds(1f);
         }
-        Stage7Text.text += "µµ»ö ¿Ï·á\n";
+        Stage7Text.text += "ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½\n";
     }
 
     public void IncreaseStep2Score()
