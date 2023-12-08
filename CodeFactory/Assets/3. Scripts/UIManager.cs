@@ -171,6 +171,35 @@ public class UIManager : MonoBehaviour
         "나가는 문은 오른쪽일세, 내일도 부탁하네",
     };
 
+    private string[] _stageNpcTexts = new string[]
+    {
+        "이곳은 내가 고쳐놨으니 바로 작동만 시키면 돼~",
+        "레버가 빛나는거 같은데? 가서 한번 눌러봐",
+        "로켓이 잘 작동하는지 집어볼수 있어~ 한번 집어봐",
+
+        "신입이 오자마자 고생이 많네.",
+        "오늘 일찍 집에 가긴 글렀다야..",
+
+        "이번달 할부가 얼마나 밀렸더라..",
+        "방패를 끼는 영웅이라니, 조만간 사이보그도 나오겠네?",
+        "신입도 방패끼고 영웅이 되면 되겠다!",
+
+        "고무가 너무 튀어서 매일매일 옷을 빨아야해..",
+        "퇴근하고싶다...",
+
+        "지금이 낮인지 밤인지도 모르겠다...",
+        "내가 왕년에 농구 선수였지.. 무릎에 농구공을 맞기 전까지",
+
+        "어디 먼 나라에서 외계인을 납치해서 기술 뜯어간다는 소문이 있던데 사실일까?",
+        "문득 야근을 빡빡하게 굴리는 사장님이 대단하다고 새삼 느껴지네",
+
+        "이제 이것만 고치면 다 고쳐지네? 빨리빨리 움직여라 신입!",
+        "야근하기 전에 빨리 끝내고 퇴근 준비해야지",
+        
+        "오늘 일급일세. 신입치곤 꽤나 기술자인데",
+        "나가는 문은 오른쪽일세, 내일도 부탁하네",
+    };
+
     #endregion
 
     #region 대사 관련 딕셔너리
@@ -596,7 +625,7 @@ public class UIManager : MonoBehaviour
     public void ChangeStageNpcText(int textIndex, TextMeshProUGUI npcTextUiObject, NPC npcType)
     {
         // 스테이지 NPC 대사 가져오기
-        string msg = _npcTexts[npcType][textIndex];
+        string msg = _stageNpcTexts[textIndex];//_npcTexts[npcType][textIndex];
 
         StartCoroutine(StageNpcTextEffectProcess(msg, npcTextUiObject));
     }

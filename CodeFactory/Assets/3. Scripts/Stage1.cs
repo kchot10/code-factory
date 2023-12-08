@@ -34,7 +34,7 @@ public class Stage1 : MonoBehaviour
     {
         // ���� ��ư ������ ���ư� ��ġ ����
         InitialMaterial = CubeCheckMeshRenderer.material;
-
+        
         // SoundManager�� ã�ų� �����д�.
         SoundManager soundManager = FindObjectOfType<SoundManager>();
         if (soundManager == null)

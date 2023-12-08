@@ -55,6 +55,61 @@ CapsuleCollider:
   m_Height: 0.21
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &6169865105235415486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1269265054017368065}
+  - component: {fileID: 5655613823905521551}
+  m_Layer: 0
+  m_Name: Right Hand Watch Collider
+  m_TagString: RightHand
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1269265054017368065
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6169865105235415486}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.15680164, y: -0.000000022351742, z: -0, w: 0.9876302}
+  m_LocalPosition: {x: 0.0363, y: 0.0336, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8261036530400639443}
+  m_LocalEulerAnglesHint: {x: 18.043, y: 0, z: 0}
+--- !u!136 &5655613823905521551
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6169865105235415486}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.05
+  m_Height: 0.19
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8264133580850856803
 GameObject:
   m_ObjectHideFlags: 0
@@ -1020,6 +1075,7 @@ Transform:
   m_Children:
   - {fileID: 8261123517326147479}
   - {fileID: 8266999458956089741}
+  - {fileID: 1269265054017368065}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!95 &8350836956578110893

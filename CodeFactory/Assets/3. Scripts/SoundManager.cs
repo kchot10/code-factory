@@ -29,7 +29,7 @@ public class SoundManager : MonoBehaviour
         Other11 = 19,
         Other12 = 20,
     }
-    public AudioClip[] soundClips; // °¢ »ç¿îµå¿¡ ´ëÇÑ AudioClip ¹è¿­
+    public AudioClip[] soundClips; // ê° ì‚¬ìš´ë“œì— ëŒ€í•œ AudioClip ë°°ì—´
 
     public AudioClip GetSoundClip(SoundList sound)
     {

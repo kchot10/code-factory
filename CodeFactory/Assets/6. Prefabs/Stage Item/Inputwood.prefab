@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 4875036524681621920}
   - component: {fileID: 5919266426993490781}
   - component: {fileID: 6363661897766637724}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Inputwood
   m_TagString: Untagged
   m_Icon: {fileID: 0}

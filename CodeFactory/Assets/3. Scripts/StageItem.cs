@@ -54,7 +54,10 @@ public class StageItem : MonoBehaviour
         ControllerItemAnimation(false);
         PlayItemSound();
         PlayItemParticleSystem();
+        
+        Debug.Log("잡기 전 : " + _rigidbody.isKinematic);
         _rigidbody.isKinematic = false;
+        Debug.Log("잡기 후 : " + _rigidbody.isKinematic);
         
        OnSelectItemEvent?.Invoke(StageItemtype);
        OnSelectItemEvent = null;
