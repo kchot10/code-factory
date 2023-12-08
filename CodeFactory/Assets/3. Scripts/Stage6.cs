@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class Stage6 : MonoBehaviour
 {
@@ -24,9 +24,17 @@ public class Stage6 : MonoBehaviour
     [SerializeField] private SoundManager.SoundList WhirlpoolSound;
     [SerializeField] private SoundManager.SoundList MoterSound;
     [SerializeField] private SoundManager.SoundList ChainsawLongSound;
+<<<<<<< HEAD
     
     [SerializeField] private Collider leverCollider;        
     
+=======
+
+    [SerializeField] private ParticleSystem[] MachinFX;
+    [SerializeField] private Image npcTextFrame;
+    [SerializeField] private TextMeshProUGUI npcText;
+
+>>>>>>> chung
     private void Start()
     {
         // ���� ��ư ������ ���ư� ��ġ ����
@@ -74,7 +82,11 @@ public class Stage6 : MonoBehaviour
 
     private void MachineOperation()
     {
+<<<<<<< HEAD
         leverCollider.enabled = false;
+=======
+        GameManager.Instance.UIManager.ChangeStageNpcText(1, npcText, UIManager.NPC.Alex);
+>>>>>>> chung
         Animation.Play();
         Animation2.Play();
         Animation3.Play();
@@ -85,6 +97,11 @@ public class Stage6 : MonoBehaviour
         WhirlpoolSFX.Play();
         MoterSFX.Play();
         ChainsawLong.Play();
+
+        foreach (var particle in MachinFX)
+        {
+            particle.Play();
+        }
     }
 
     private IEnumerator CubeSuccess()
@@ -130,5 +147,10 @@ public class Stage6 : MonoBehaviour
     public void DecreaseStep2Score()
     {
         _step2Count = Mathf.Clamp(_step2Count - 1, 0, 5);
+    }
+    public void TriggerZoneEnter()
+    {
+        npcTextFrame.enabled = true;
+        GameManager.Instance.UIManager.ChangeStageNpcText(0, npcText, UIManager.NPC.Alex);
     }
 }

@@ -8,7 +8,6 @@ public class PositionReset : MonoBehaviour
     private Vector3[] StagePositions;
     private Vector3[] initialPositions;
     private Quaternion[] initialRotations;
-    private int _step2Count = 0;
 
     [SerializeField] private ParticleSystem resetButtonFX;
 

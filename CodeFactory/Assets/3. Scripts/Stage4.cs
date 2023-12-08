@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Stage4 : MonoBehaviour
 {
@@ -20,6 +22,8 @@ public class Stage4 : MonoBehaviour
     [SerializeField] private SoundManager.SoundList WaterSound;
 
     [SerializeField] private ParticleSystem[] MachinFX;
+    [SerializeField] private Image npcTextFrame;
+    [SerializeField] private TextMeshProUGUI npcText;
 
     [SerializeField] private Collider leverCollider;        
     
@@ -64,7 +68,11 @@ public class Stage4 : MonoBehaviour
 
     private void MachineOperation()
     {
+<<<<<<< HEAD
         leverCollider.enabled = false;
+=======
+        GameManager.Instance.UIManager.ChangeStageNpcText(1, npcText, UIManager.NPC.Joe);
+>>>>>>> chung
         RubberyLiquidFX.Play();
         Animation.Play();
         GameManager.Instance.ClearTodoListUpdate(UIManager.StageList.Stage4);
@@ -111,5 +119,10 @@ public class Stage4 : MonoBehaviour
     public void DecreaseStep2Score()
     {
         _step2Count = Mathf.Clamp(_step2Count - 1, 0, 3);
+    }
+    public void TriggerZoneEnter()
+    {
+        npcTextFrame.enabled = true;
+        GameManager.Instance.UIManager.ChangeStageNpcText(0, npcText, UIManager.NPC.Joe);
     }
 }

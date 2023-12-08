@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:CodeFactory/Assets/6. Prefabs/Player/XR Interaction Setup.prefab.meta
 guid: bbb316a2be3381e42be50b7872b56e61
 PrefabImporter:
+========
+guid: d7d61066b3e01854a9964c5ba821461f
+NativeFormatImporter:
+>>>>>>>> chung:CodeFactory/Assets/4. Materials/ALetter.mat.meta
   externalObjects: {}
+  mainObjectFileID: 2100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
