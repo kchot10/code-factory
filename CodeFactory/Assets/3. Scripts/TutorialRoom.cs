@@ -17,6 +17,8 @@ public class TutorialRoom : MonoBehaviour
     [SerializeField] private Animation tutorialMetalDoorAnimation;
     [SerializeField] private AudioSource buttonPressSFX;
     [SerializeField] private AudioSource tutorialMetalDoorOpenSFX;
+    [SerializeField] private ParticleSystem tutorialMetalDoorLeftFX;
+    [SerializeField] private ParticleSystem tutorialMetalDoorRightFX;
 
     private int _step2Count = 0;
 
@@ -35,6 +37,8 @@ public class TutorialRoom : MonoBehaviour
         tutorialMetalDoorAnimation.Play(clipName);
         buttonPressSFX.Play();
         tutorialMetalDoorOpenSFX.Play();
+        tutorialMetalDoorLeftFX.Play();
+        tutorialMetalDoorRightFX.Play();
     }
     
 
