@@ -75,7 +75,7 @@ public class Stage7 : MonoBehaviour
         Animation.Play();
         Animation2.Play();
         StartCoroutine(TextPlay());
-        /*GameManager.Instance.ClearTodoListUpdate(UIManager.StageList.Exit);*/
+        GameManager.Instance.ClearTodoListUpdate(UIManager.StageList.Stage7);
         // Todo: 성공 사운드
         ConveyorbeltSFX.Play();
         WhirlpoolSFX.Play();
