@@ -1,9 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-<<<<<<< HEAD
-=======
 using TMPro;
->>>>>>> chung
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -77,11 +74,8 @@ public class Stage5 : MonoBehaviour
 
     private void MachineOperation()
     {
-<<<<<<< HEAD
         leverCollider.enabled = false;
-=======
         GameManager.Instance.UIManager.ChangeStageNpcText(1, npcText, UIManager.NPC.Jackson);
->>>>>>> chung
         Animation.Play();
         Animation2.Play();
         Animation3.Play();

@@ -28,13 +28,9 @@ public class Stage1 : MonoBehaviour
 
     [SerializeField] private ParticleSystem[] MachinFX;
 
-<<<<<<< HEAD
     [SerializeField] private Collider leverCollider;
-=======
     [SerializeField] private Image npcTextFrame;
     [SerializeField] private TextMeshProUGUI npcText;
-
->>>>>>> chung
 
     private void Start()
     {
@@ -78,11 +74,8 @@ public class Stage1 : MonoBehaviour
 
     private void MachineOperation()
     {
-<<<<<<< HEAD
         leverCollider.enabled = false;
-=======
         GameManager.Instance.UIManager.ChangeStageNpcText(2, npcText, UIManager.NPC.Megan);
->>>>>>> chung
         Animation.Play();
         Animation2.Play();
         Animation3.Play();

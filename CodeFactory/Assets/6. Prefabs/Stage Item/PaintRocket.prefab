@@ -19378,7 +19378,7 @@ GameObject:
   - component: {fileID: 1571879631616160556}
   - component: {fileID: 6997284340434233467}
   - component: {fileID: 6429944368615663118}
-  - component: {fileID: 4302323048505668793}
+  - component: {fileID: 2379441189131723828}
   - component: {fileID: 1196180122912429872}
   - component: {fileID: 7880193008437998308}
   - component: {fileID: 1749981911280092904}
@@ -19568,7 +19568,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4302323048505668793
+--- !u!114 &2379441189131723828
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19577,7 +19577,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8723155582248693309}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac5a1e569f5970b45b7a3898a78a8254, type: 3}
+  m_Script: {fileID: 11500000, guid: 71afaeb4d63f92f4eaaf58a4b3e54d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   StageItemtype: 1
@@ -19682,7 +19682,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4302323048505668793}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StageItem, Assembly-CSharp
         m_MethodName: OnSelectItem
         m_Mode: 0

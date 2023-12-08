@@ -119,10 +119,10 @@ public class Stage7 : MonoBehaviour
     {
         for (int i = 0; i < 6; i++)
         {
-            Stage7Text.text += "���� ����\n";
+            Stage7Text.text += "도색 시작\n";
             yield return new WaitForSeconds(1f);
         }
-        Stage7Text.text += "���� �Ϸ�\n";
+        Stage7Text.text += "도색 완료\n";
     }
 
     public void IncreaseStep2Score()

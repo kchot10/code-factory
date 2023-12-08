@@ -24,17 +24,14 @@ public class Stage6 : MonoBehaviour
     [SerializeField] private SoundManager.SoundList WhirlpoolSound;
     [SerializeField] private SoundManager.SoundList MoterSound;
     [SerializeField] private SoundManager.SoundList ChainsawLongSound;
-<<<<<<< HEAD
     
     [SerializeField] private Collider leverCollider;        
     
-=======
 
     [SerializeField] private ParticleSystem[] MachinFX;
     [SerializeField] private Image npcTextFrame;
     [SerializeField] private TextMeshProUGUI npcText;
 
->>>>>>> chung
     private void Start()
     {
         // ���� ��ư ������ ���ư� ��ġ ����
@@ -82,11 +79,8 @@ public class Stage6 : MonoBehaviour
 
     private void MachineOperation()
     {
-<<<<<<< HEAD
         leverCollider.enabled = false;
-=======
         GameManager.Instance.UIManager.ChangeStageNpcText(1, npcText, UIManager.NPC.Alex);
->>>>>>> chung
         Animation.Play();
         Animation2.Play();
         Animation3.Play();
@@ -127,10 +121,10 @@ public class Stage6 : MonoBehaviour
     {
         for (int i = 0; i < 9; i++)
         {
-            Stage6Text.text += "���� Ŀ��\n";
+            Stage6Text.text += "나무 커팅\n";
             yield return new WaitForSeconds(1f);
         }
-        Stage6Text.text += "Ŀ�� �Ϸ�\n";
+        Stage6Text.text += "커팅 완료\n";
     }
 
 

@@ -1,10 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-<<<<<<< HEAD
-=======
 using UnityEngine.UI;
->>>>>>> chung
 using UnityEngine;
 
 public class Stage2 : MonoBehaviour

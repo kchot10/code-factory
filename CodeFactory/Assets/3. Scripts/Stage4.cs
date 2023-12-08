@@ -68,11 +68,8 @@ public class Stage4 : MonoBehaviour
 
     private void MachineOperation()
     {
-<<<<<<< HEAD
         leverCollider.enabled = false;
-=======
         GameManager.Instance.UIManager.ChangeStageNpcText(1, npcText, UIManager.NPC.Joe);
->>>>>>> chung
         RubberyLiquidFX.Play();
         Animation.Play();
         GameManager.Instance.ClearTodoListUpdate(UIManager.StageList.Stage4);

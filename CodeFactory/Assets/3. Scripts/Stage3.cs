@@ -71,11 +71,8 @@ public class Stage3 : MonoBehaviour
 
     private void MachineOperation()
     {
-<<<<<<< HEAD
         leverCollider.enabled = false;
-=======
         GameManager.Instance.UIManager.ChangeStageNpcText(2, npcText, UIManager.NPC.Steve);
->>>>>>> chung
         SmallShieldAnim.enabled = true;
         MiddleShieldAnim.enabled = true;
         BigShieldAnim.enabled = true;
