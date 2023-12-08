@@ -38532,6 +38532,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1100419203}
     m_Modifications:
+    - target: {fileID: -5668769008002085934, guid: 471088445f741e64c82f447ba7849c30,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5668769008002085934, guid: 471088445f741e64c82f447ba7849c30,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 113576, guid: 471088445f741e64c82f447ba7849c30, type: 3}
       propertyPath: m_Name
       value: StarExplosionOrange (1)
@@ -118436,6 +118446,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1685227593}
     m_Modifications:
+    - target: {fileID: -601564030176995816, guid: 27bec7bc47f580b41b60cd2d2cac5908,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -601564030176995816, guid: 27bec7bc47f580b41b60cd2d2cac5908,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 121188, guid: 27bec7bc47f580b41b60cd2d2cac5908, type: 3}
       propertyPath: m_Name
       value: StarExplosionBlue (1)
@@ -153394,6 +153414,8 @@ MonoBehaviour:
   SpraySound: 3
   MachinFX:
   - {fileID: 229263730}
+  npcTextFrame: {fileID: 0}
+  NPCText: {fileID: 0}
 --- !u!114 &994505123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159586,6 +159608,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 448222152}
     m_Modifications:
+    - target: {fileID: -5668769008002085934, guid: 471088445f741e64c82f447ba7849c30,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5668769008002085934, guid: 471088445f741e64c82f447ba7849c30,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 113576, guid: 471088445f741e64c82f447ba7849c30, type: 3}
       propertyPath: m_Name
       value: StarExplosionOrange (2)
@@ -172620,6 +172652,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3723064}
     m_Modifications:
+    - target: {fileID: -601564030176995816, guid: 27bec7bc47f580b41b60cd2d2cac5908,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -601564030176995816, guid: 27bec7bc47f580b41b60cd2d2cac5908,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 121188, guid: 27bec7bc47f580b41b60cd2d2cac5908, type: 3}
       propertyPath: m_Name
       value: StarExplosionBlue (2)
@@ -256536,6 +256578,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1479050461}
     m_Modifications:
+    - target: {fileID: -5668769008002085934, guid: 471088445f741e64c82f447ba7849c30,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5668769008002085934, guid: 471088445f741e64c82f447ba7849c30,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 113576, guid: 471088445f741e64c82f447ba7849c30, type: 3}
       propertyPath: m_Name
       value: StarExplosionOrange
