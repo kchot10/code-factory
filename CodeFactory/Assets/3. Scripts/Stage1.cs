@@ -28,6 +28,10 @@ public class Stage1 : MonoBehaviour
 
     [SerializeField] private ParticleSystem[] MachinFX;
 
+    [SerializeField] private Image npcTextFrame;
+    [SerializeField] private TextMeshProUGUI NPCText;
+
+
     private void Start()
     {
         // 리셋 버튼 누르면 돌아갈 위치 저장
@@ -70,6 +74,7 @@ public class Stage1 : MonoBehaviour
 
     private void MachineOperation()
     {
+        GameManager.Instance.UIManager.ChangeStageNpcText(2, NPCText, UIManager.NPC.Megan);
         Animation.Play();
         Animation2.Play();
         Animation3.Play();
@@ -87,6 +92,7 @@ public class Stage1 : MonoBehaviour
 
     private IEnumerator CubeSuccess()
     {
+        GameManager.Instance.UIManager.ChangeStageNpcText(1, NPCText, UIManager.NPC.Megan);
         for (int i = 0; i < 3; i++)
         {
             yield return new WaitForSeconds(0.3f);
@@ -117,5 +123,11 @@ public class Stage1 : MonoBehaviour
     public void DecreaseStep2Score()
     {
         _step2Count = Mathf.Clamp(_step2Count - 1, 0, 1);
+    }
+
+    public void TriggerZoneEnter()
+    {
+        npcTextFrame.enabled = true;
+        GameManager.Instance.UIManager.ChangeStageNpcText(0, NPCText, UIManager.NPC.Megan);
     }
 }
