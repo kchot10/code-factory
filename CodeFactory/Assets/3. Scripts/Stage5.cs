@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Stage5 : MonoBehaviour
 {
@@ -21,6 +23,8 @@ public class Stage5 : MonoBehaviour
     [SerializeField] private SoundManager.SoundList MoterSound;
     [SerializeField] private SoundManager.SoundList SpraySound;
     [SerializeField] private SoundManager.SoundList SwooshSound;
+    [SerializeField] private Image npcTextFrame;
+    [SerializeField] private TextMeshProUGUI npcText;
 
     private void Start()
     {
@@ -68,6 +72,7 @@ public class Stage5 : MonoBehaviour
 
     private void MachineOperation()
     {
+        GameManager.Instance.UIManager.ChangeStageNpcText(1, npcText, UIManager.NPC.Jackson);
         Animation.Play();
         Animation2.Play();
         Animation3.Play();
@@ -111,5 +116,10 @@ public class Stage5 : MonoBehaviour
     public void DecreaseStep2Score()
     {
         _step2Count = Mathf.Clamp(_step2Count - 1, 0, 5);
+    }
+    public void TriggerZoneEnter()
+    {
+        npcTextFrame.enabled = true;
+        GameManager.Instance.UIManager.ChangeStageNpcText(0, npcText, UIManager.NPC.Jackson);
     }
 }

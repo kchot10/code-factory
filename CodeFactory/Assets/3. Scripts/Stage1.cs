@@ -29,7 +29,7 @@ public class Stage1 : MonoBehaviour
     [SerializeField] private ParticleSystem[] MachinFX;
 
     [SerializeField] private Image npcTextFrame;
-    [SerializeField] private TextMeshProUGUI NPCText;
+    [SerializeField] private TextMeshProUGUI npcText;
 
 
     private void Start()
@@ -74,7 +74,7 @@ public class Stage1 : MonoBehaviour
 
     private void MachineOperation()
     {
-        GameManager.Instance.UIManager.ChangeStageNpcText(2, NPCText, UIManager.NPC.Megan);
+        GameManager.Instance.UIManager.ChangeStageNpcText(2, npcText, UIManager.NPC.Megan);
         Animation.Play();
         Animation2.Play();
         Animation3.Play();
@@ -92,7 +92,7 @@ public class Stage1 : MonoBehaviour
 
     private IEnumerator CubeSuccess()
     {
-        GameManager.Instance.UIManager.ChangeStageNpcText(1, NPCText, UIManager.NPC.Megan);
+        GameManager.Instance.UIManager.ChangeStageNpcText(1, npcText, UIManager.NPC.Megan);
         for (int i = 0; i < 3; i++)
         {
             yield return new WaitForSeconds(0.3f);
@@ -128,6 +128,6 @@ public class Stage1 : MonoBehaviour
     public void TriggerZoneEnter()
     {
         npcTextFrame.enabled = true;
-        GameManager.Instance.UIManager.ChangeStageNpcText(0, NPCText, UIManager.NPC.Megan);
+        GameManager.Instance.UIManager.ChangeStageNpcText(0, npcText, UIManager.NPC.Megan);
     }
 }

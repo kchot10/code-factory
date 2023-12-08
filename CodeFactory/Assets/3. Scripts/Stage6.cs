@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class Stage6 : MonoBehaviour
 {
@@ -26,6 +26,8 @@ public class Stage6 : MonoBehaviour
     [SerializeField] private SoundManager.SoundList ChainsawLongSound;
 
     [SerializeField] private ParticleSystem[] MachinFX;
+    [SerializeField] private Image npcTextFrame;
+    [SerializeField] private TextMeshProUGUI npcText;
 
     private void Start()
     {
@@ -74,6 +76,7 @@ public class Stage6 : MonoBehaviour
 
     private void MachineOperation()
     {
+        GameManager.Instance.UIManager.ChangeStageNpcText(1, npcText, UIManager.NPC.Alex);
         Animation.Play();
         Animation2.Play();
         Animation3.Play();
@@ -134,5 +137,10 @@ public class Stage6 : MonoBehaviour
     public void DecreaseStep2Score()
     {
         _step2Count = Mathf.Clamp(_step2Count - 1, 0, 5);
+    }
+    public void TriggerZoneEnter()
+    {
+        npcTextFrame.enabled = true;
+        GameManager.Instance.UIManager.ChangeStageNpcText(0, npcText, UIManager.NPC.Alex);
     }
 }

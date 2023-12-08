@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Stage3 : MonoBehaviour
 {
@@ -22,6 +24,9 @@ public class Stage3 : MonoBehaviour
     [SerializeField] private SoundManager.SoundList SpraySound;
 
     [SerializeField] private ParticleSystem[] MachinFX;
+
+    [SerializeField] private Image npcTextFrame;
+    [SerializeField] private TextMeshProUGUI npcText;
 
     private void Start()
     {
@@ -64,6 +69,7 @@ public class Stage3 : MonoBehaviour
 
     private void MachineOperation()
     {
+        GameManager.Instance.UIManager.ChangeStageNpcText(2, npcText, UIManager.NPC.Steve);
         SmallShieldAnim.enabled = true;
         MiddleShieldAnim.enabled = true;
         BigShieldAnim.enabled = true;
@@ -82,6 +88,7 @@ public class Stage3 : MonoBehaviour
 
     private IEnumerator CubeSuccess()
     {
+        GameManager.Instance.UIManager.ChangeStageNpcText(1, npcText, UIManager.NPC.Steve);
         for (int i = 0; i < 3; i++)
         {
             yield return new WaitForSeconds(0.3f);
@@ -112,5 +119,10 @@ public class Stage3 : MonoBehaviour
     public void DecreaseStep2Score()
     {
         _step2Count = Mathf.Clamp(_step2Count - 1, 0, 3);
+    }
+    public void TriggerZoneEnter()
+    {
+        npcTextFrame.enabled = true;
+        GameManager.Instance.UIManager.ChangeStageNpcText(0, npcText, UIManager.NPC.Steve);
     }
 }
