@@ -4841,8 +4841,8 @@ GameObject:
   - component: {fileID: 3128506394122587326}
   - component: {fileID: 5333514276843209854}
   - component: {fileID: 9033542119609608027}
-  - component: {fileID: 5162835843182144102}
   - component: {fileID: 7169531056894664521}
+  - component: {fileID: 2422526420277679320}
   m_Layer: 9
   m_Name: PaintRubberDuck
   m_TagString: Untagged
@@ -5011,7 +5011,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5162835843182144102}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StageItem, Assembly-CSharp
         m_MethodName: OnSelectItem
         m_Mode: 0
@@ -5145,21 +5145,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.16403654, y: 0.19863763, z: 0.22132239}
   m_Center: {x: 0.00000047683716, y: 0.096215084, z: -0.015472103}
---- !u!114 &5162835843182144102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2608376267605228842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac5a1e569f5970b45b7a3898a78a8254, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StageItemtype: 3
-  itemParticleSystem: {fileID: 939662150449276036}
-  itemAudioSource: {fileID: 7169531056894664521}
 --- !u!82 &7169531056894664521
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5256,6 +5241,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2422526420277679320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2608376267605228842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71afaeb4d63f92f4eaaf58a4b3e54d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StageItemtype: 3
+  itemParticleSystem: {fileID: 939662150449276036}
+  itemAudioSource: {fileID: 7169531056894664521}
 --- !u!1 &5284668433858110080
 GameObject:
   m_ObjectHideFlags: 0

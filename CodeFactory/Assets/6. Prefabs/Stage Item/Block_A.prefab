@@ -4874,8 +4874,8 @@ GameObject:
   - component: {fileID: 2335973317823236194}
   - component: {fileID: 1367606863710016831}
   - component: {fileID: 3430543680160679620}
-  - component: {fileID: 7346539357031558323}
   - component: {fileID: 5965382892257244889}
+  - component: {fileID: 1770926036622919564}
   m_Layer: 9
   m_Name: Block_A
   m_TagString: Untagged
@@ -5066,7 +5066,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7346539357031558323}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: StageItem, Assembly-CSharp
         m_MethodName: OnSelectItem
         m_Mode: 0
@@ -5179,21 +5179,6 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!114 &7346539357031558323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5587717175894973657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac5a1e569f5970b45b7a3898a78a8254, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StageItemtype: 9
-  itemParticleSystem: {fileID: 4441660329442053041}
-  itemAudioSource: {fileID: 5965382892257244889}
 --- !u!82 &5965382892257244889
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5290,3 +5275,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1770926036622919564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5587717175894973657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71afaeb4d63f92f4eaaf58a4b3e54d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StageItemtype: 9
+  itemParticleSystem: {fileID: 4441660329442053041}
+  itemAudioSource: {fileID: 5965382892257244889}

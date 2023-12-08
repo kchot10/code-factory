@@ -625,7 +625,7 @@ public class UIManager : MonoBehaviour
     public void ChangeStageNpcText(int textIndex, TextMeshProUGUI npcTextUiObject, NPC npcType)
     {
         // 스테이지 NPC 대사 가져오기
-        string msg = _stageNpcTexts[textIndex];//_npcTexts[npcType][textIndex];
+        string msg = _npcTexts[npcType][textIndex];
 
         StartCoroutine(StageNpcTextEffectProcess(msg, npcTextUiObject));
     }
