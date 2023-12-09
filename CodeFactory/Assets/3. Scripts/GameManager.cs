@@ -164,8 +164,6 @@ public class GameManager : MonoBehaviour
         {
             if (CheckQuestClear())
             {
-                Debug.Log("퇴근 퀘스트 추가");
-                
                 // 퇴근 퀘스트 추가
                 NewTodoListUpdate(UIManager.StageList.Exit);
                 

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -296,6 +297,10 @@ public class UIManager : MonoBehaviour
     private Image _currentMessagePortrait;
     
     #endregion
+
+    #region Fade 연출 이미지
+    [SerializeField] private Image fadeImage;
+    #endregion
     
     private void Awake()
     {
@@ -442,7 +447,8 @@ public class UIManager : MonoBehaviour
         clearGameAcceptButton.onClick.AddListener(() =>
         {
             // 게임 종료 등록
-             GameManager.Instance.ClearGame();
+            FadeIn();
+            clearGameUI.gameObject.SetActive(false);
         });
         
         // 개발자 모드 버튼
@@ -463,6 +469,8 @@ public class UIManager : MonoBehaviour
         {
             GameManager.Instance.DisableMotionSickness();
         });
+
+        FadeOut();
     }
 
     #region 글로벌 및 라디오 UI
@@ -783,6 +791,22 @@ public class UIManager : MonoBehaviour
 
             DOTweenManager.DoScaleToBig(clearListObject.transform, () => clearListObject.SetClearListData(stageText, time));
         }
+    }
+
+    #endregion
+
+    #region 페이드 인 아웃 연출
+
+    // 페이드 인
+    public void FadeIn()
+    {
+        fadeImage.DOFade(1f, 7.5f).From(0f).OnComplete(() => GameManager.Instance.ClearGame());
+    }
+
+    // 페이드 아웃
+    public void FadeOut()
+    {
+        fadeImage.DOFade(0f, 15f).From(1f);
     }
 
     #endregion
