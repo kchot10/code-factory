@@ -5033,7 +5033,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4100578303738420837}
         m_TargetAssemblyTypeName: StageItem, Assembly-CSharp
         m_MethodName: OnSelectItem
         m_Mode: 0

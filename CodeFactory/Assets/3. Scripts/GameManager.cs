@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
-using XRController = UnityEngine.InputSystem.XR.XRController;
+using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,17 +14,27 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UIManager uiManager;
     [SerializeField] private UI_SoundManager uiSoundManager;
     [SerializeField] private StageItemManager stageItemManager;
+    [SerializeField] private ExitRoom exitRoom;
+    
+    [SerializeField] private GameObject exitRoomFrontCheckPoint; // 탈출구 트리거 Zone
+    [SerializeField] private GameObject tunnelingVignette; // 멀미 방지 기능
+    
     public UIManager UIManager => uiManager;
     public UI_SoundManager UISoundManager => uiSoundManager;
     public StageItemManager StageItemManager => stageItemManager;
 
     private Dictionary<UIManager.StageList, bool> _playerQuestStages = new Dictionary<UIManager.StageList, bool>();
+    private Dictionary<UIManager.StageList, int> _playerStageClearTime = new Dictionary<UIManager.StageList, int>();
 
     [SerializeField] private XRBaseController xrRightController;
     [SerializeField] private XRBaseController xrLeftController;
     private Coroutine _repeatControllerHaptic;
 
     [SerializeField] private LeftHandWatch leftHandWatch;
+
+    private int _stageClearTimer = 0;
+    private Coroutine _stageClearTimerProcess;
+    private readonly WaitForSeconds seconds = new WaitForSeconds(1f);
     
     public enum ControllerHand
     {
@@ -40,20 +50,14 @@ public class GameManager : MonoBehaviour
         _instance = this;
         
         uiManager.UiButtonEventInit();
-    }
-
-
-    // 입력 테스트
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            UIManager.EnableGlobalMessageUI();
-        }
-        else if (Input.GetKeyDown(KeyCode.W))
-        {
-            UIManager.EnableRadioMessageUI();
-        }
+        
+        _playerStageClearTime.Add(UIManager.StageList.Stage1, 0);
+        _playerStageClearTime.Add(UIManager.StageList.Stage2, 0);
+        _playerStageClearTime.Add(UIManager.StageList.Stage3, 0);
+        _playerStageClearTime.Add(UIManager.StageList.Stage4, 0);
+        _playerStageClearTime.Add(UIManager.StageList.Stage5, 0);
+        _playerStageClearTime.Add(UIManager.StageList.Stage6, 0);
+        _playerStageClearTime.Add(UIManager.StageList.Stage7, 0);
     }
 
     public void CallGlobalMessage(int startTextIndex, int endTextIndex, UIManager.NPC npcType)
@@ -105,6 +109,20 @@ public class GameManager : MonoBehaviour
         }
         
         _playerQuestStages.Add(stageList, false);
+
+        // 스테이지 퀘스트 시작 시 타이머 작동 시작
+        if (_playerStageClearTime.ContainsKey(stageList))
+        {
+            _stageClearTimer = 0;
+
+            if (_stageClearTimerProcess != null)
+            {
+                StopCoroutine(_stageClearTimerProcess);
+                _stageClearTimerProcess = null;
+            }
+
+            _stageClearTimerProcess = StartCoroutine(StageClearTimerProcess());
+        }
     }
     
     /// <summary>
@@ -120,6 +138,99 @@ public class GameManager : MonoBehaviour
         }
         
         _playerQuestStages[stageList] = true;
+
+        // 스테이지 퀘스트 클리어 시 타이머 기록
+        if (_playerStageClearTime.ContainsKey(stageList))
+        {
+            StopCoroutine(_stageClearTimerProcess);
+            _stageClearTimerProcess = null;
+
+            _playerStageClearTime[stageList] = _stageClearTimer;
+        }
+        
+        // 돈을 받은 후 퀘스트를 모두 완료하면 게임 종료
+        if (_playerQuestStages.Count == (int)UIManager.StageList.StageListCount)
+        {
+            if (CheckQuestClear())
+            {
+                // 게임 결과 UI 출력
+                uiManager.EnableOptionUI(UIManager.OptionListUI.clearGameUI);
+            }
+            return;
+        }
+        
+        // 돈을 받기 전 퀘스트를 모두 완료하면
+        if (_playerQuestStages.Count == (int)UIManager.StageList.StageListCount - 1)
+        {
+            if (CheckQuestClear())
+            {
+                Debug.Log("퇴근 퀘스트 추가");
+                
+                // 퇴근 퀘스트 추가
+                NewTodoListUpdate(UIManager.StageList.Exit);
+                
+                // 출구 트리거 활성화
+                exitRoomFrontCheckPoint.SetActive(true);
+                
+                // 탈출구 개방
+                exitRoom.ExitRoomDoorOpen();
+            }
+        }
+    }
+
+    [ContextMenu("DebugModeClearAllStage")]
+    /// <summary>
+    /// 개발자 모드 모든 스테이지 클리어
+    /// </summary>
+    public void DebugModeClearAllStage()
+    {
+        UIManager.StageList[] stageList = (UIManager.StageList[])Enum.GetValues(typeof(UIManager.StageList));
+
+        foreach (var stage in stageList)
+        {
+            if (stage == UIManager.StageList.None || stage == UIManager.StageList.StageListCount ||
+                stage == UIManager.StageList.Exit) return;
+            
+            
+            if (_playerQuestStages.ContainsKey(stage))
+            {
+                if (_playerQuestStages[stage] == false)
+                {
+                    ClearTodoListUpdate(stage);
+                }
+            }
+            else
+            {
+                NewTodoListUpdate(stage);
+                ClearTodoListUpdate(stage);
+            }
+        }
+    }
+
+    // 스테이지 타이머 코루틴
+    private IEnumerator StageClearTimerProcess()
+    {
+        while (true)
+        {
+            yield return seconds;
+            _stageClearTimer += 1;
+        }
+    }
+    
+    /// <summary>
+    /// 퀘스트 완료 확인
+    /// </summary>
+    /// <returns>완료 결과</returns>
+    private bool CheckQuestClear()
+    {
+        foreach (bool clear in _playerQuestStages.Values)
+        {
+            if (!clear)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
 
@@ -137,9 +248,14 @@ public class GameManager : MonoBehaviour
         return _playerQuestStages;
     }
 
+    public Dictionary<UIManager.StageList, int> GetClearStagesTimer()
+    {
+        return _playerStageClearTime;
+    }
+
     public void ClearGame()
     {
-        
+        Application.Quit();
     }
     
     #region VR 컨트롤러 진동
@@ -208,6 +324,22 @@ public class GameManager : MonoBehaviour
     {
         leftHandWatch.EnableWatchCollider();
     }
+
+    #region 멀미 방지 기능
+
+    public void EnableMotionSickness()
+    {
+        tunnelingVignette.SetActive(true);
+    }
+    
+    public void DisableMotionSickness()
+    {
+        tunnelingVignette.SetActive(false);
+    }
+
+    #endregion
+    
+
     
     public void ExitGameProgram()
     {

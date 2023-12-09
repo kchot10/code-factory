@@ -24,6 +24,8 @@ public class UIManager : MonoBehaviour
         Stage6 = 7,
         Stage7 = 8,
         Exit = 9,
+        
+        StageListCount = 10,
     }
     
     public enum OptionListUI
@@ -32,7 +34,8 @@ public class UIManager : MonoBehaviour
         optionUI = 0,
         toDoList = 1,
         hintUI = 2,
-        exitGameUI = 3
+        exitGameUI = 3,
+        clearGameUI = 4,
     }
     
     public enum NPC
@@ -111,8 +114,8 @@ public class UIManager : MonoBehaviour
         "나무 블럭을 집어보게, 위험할 수 도 있지만 잘만 잡는다면 문제 없을걸세! 아마도..",
         
         // 스테이지 7
-        "마지막 설비일세, 지금까지 훌륭하게 해온 자네에는 이번 어려운 문제도 문제 없이 풀 것이라고 믿네", // 29
-        "고생했네, 이만 오늘 할 일은 다했으니 퇴근하게",
+        "이번 문제도 잘 해낼 것이라 믿어 의심치 않네", // 29
+        "이 어려운 문제를 해냈다니 대단하군",
         
         // Exit
         "출구 앞에서 오늘 일당을 받아가서 퇴근하면 된다네", // 31
@@ -267,6 +270,19 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI callerNameText;
     [SerializeField] private Image callerPortrait;
     [SerializeField] private Button callerAcceptButton;
+
+    [Header("엔딩 UI")] 
+    [SerializeField] private GameObject clearGameUI;
+    [SerializeField] private GameObject clearListPrefab;
+    [SerializeField] private Transform clearListContentRoot;
+    [SerializeField] private Button clearGameAcceptButton;
+
+    [Header("개발자 모드 UI")] 
+    [SerializeField] private Button gameClearButton;
+
+    [Header("멀티 방지 버튼")] 
+    [SerializeField] private Button motionSicknessOnButton;
+    [SerializeField] private Button motionSicknessOffButton;
     
     private readonly StringBuilder _stringBuilder = new StringBuilder();
     private readonly WaitForSeconds _waitForSeconds = new WaitForSeconds(0.025f);
@@ -335,128 +351,53 @@ public class UIManager : MonoBehaviour
         
         _hintTexts = new Dictionary<StageList, string>()
         {
-            [StageList.Stage2] = "정수형 (Integer), int :\n" +
-                                 "정수형은 프로그래밍에서 정수 값을 저장하는 변수형입니다. 양수, 음수, 0을 표현할 수 있습니다.\n" +
-                                 "ex ) int age = 25; // 나이를 저장하는 정수형 변수에 25라는 값을 저장합니다.\n" +
-                                 "ex ) int quantity = 10; // 상품의 수량을 저장하는 정수형 변수에 10이라는 값을 저장합니다.\n\n" +
-
-                                 "실수형 (Floating-point), float :\n" +
-                                 "실수형은 소수점을 가지는 실수 값을 저장하는 변수형입니다. 숫자의 소수점 이하 자릿수를 다룰 때 사용됩니다.\n" +
-                                 "ex ) double pi = 3.14159; // 파이(원주율) 값을 저장하는 실수형 변수에 3.14159라는 값을 저장합니다.\n" +
-                                 "ex ) float temperature = 26.5; // 온도를 저장하는 실수형 변수에 26.5라는 값을 저장합니다.\n\n" +
-
-                                 "문자형 (Character), char :\n" +
-                                 "문자형은 단일 문자를 저장하는 변수형입니다. 알파벳, 숫자, 특수문자 등을 저장할 수 있습니다.\n" +
-                                 "ex ) char grade = 'A'; // 학점을 저장하는 문자형 변수에 'A'라는 문자를 저장합니다.\n" +
-                                 "ex ) char symbol = '@'; // 특수문자 '@'를 저장하는 문자형 변수에 '@'라는 값을 저장합니다.",
+            [StageList.Stage2] = "정수형 (int): 프로그래밍에서 양수, 음수, 0을 저장하는 변수형으로,\n"
+                                 + "예시로는 나이를 나타내는 변수 age에를 저장하는 등의 사용이 있습니다.\n\n"
+                                 + "실수형 (float): 소수점을 가지는 실수 값을 저장하는 변수형으로,\n"
+                                 + "파이 값을 저장하는 변수 temperature에등을 사용할 수 있습니다.\n\n"
+                                 + "문자형 (char): 단일 문자를 저장하는 변수형으로,\n"
+                                 + "학점을 나타내는 변수 grade에를 저장하거나 특수문자 등의 용도로 사용됩니다.",
             
-            [StageList.Stage3] = "대입 연산자 : =\n" +
-                                "'='는 변수에 값을 할당하는 대입 연산자입니다. \n" +
-                                "ex ) 'a = 10'은 변수 a에 10을 할당하는 것을 의미합니다.\n\n" +
-
-                                "같다 : ==\n" +
-                                "두 개의 값이 서로 같은지 비교합니다. \n" +
-                                "ex ) 'a == b'는 변수 a와 b의 값이 같은지를 확인합니다.\n\n" +
-
-                                "다르다 : !=\n" +
-                                "두 개의 값이 서로 다른지 비교합니다\n" +
-                                "ex ) 'a != b'는 변수 a와 b의 값이 다른지를 확인합니다.\n\n" +
-
-                                "크다 : > , 크거나 같다 : >=\n" +
-                                "왼쪽 값이 오른쪽 값보다 큰지(>), 또는 크거나 같은지(>=) 비교합니다.\n" +
-                                "ex ) 'a > b'는 변수 a가 변수 b보다 큰지를 확인합니다.\n" +
-                                "ex ) 'a >= b'는 변수 a가 변수 b보다 크거나 같은지를 확인합니다.\n\n" +
-
-                                "작다 : < , 작거나 같다 : <=\n" +
-                                "왼쪽 값이 오른쪽 값보다 작은지(<), 또는 작거나 같은지(<=) 비교합니다.\n" +
-                                "ex ) 'a < b'는 변수 a가 변수 b보다 작은지를 확인합니다.\n" +
-                                "ex ) 'a <= b'는 변수 a가 변수 b보다 작거나 같은지를 확인합니다.",
+            [StageList.Stage3] =  "대입 연산자 (=): 변수에 값을 할당하는 데 사용됩니다.\n\n"
+                                 + "동등 비교 연산자 (==): 두 값이 서로 같은지 비교합니다.\n\n"
+                                 + "부등 비교 연산자 (!=): 두 값이 서로 다른지 비교합니다.\n\n"
+                                 + "비교 연산자 (> and >= and < and <=): 크기를 비교합니다.",
             
-            [StageList.Stage4] = "if-else 조건문의 구조:\n" +
-                                 "if (조건식) \n" +
-                                 "{\n" +
-                                 "    // 조건식이 참일 때 실행되는 코드 블록\n" +
-                                 "}\n" +
-                                 "else\n" +
-                                 "{\n" +
-                                 "   // 조건식이 거짓일 때 실행되는 코드 블록\n" +
-                                 "}\n\n" +
-
-                                 "if-else-if 조건문의 구조:\n" +
-                                 "if (조건식1) \n" +
-                                 "{\n" +
-                                 "    // 조건식1이 참일 때 실행되는 코드\n" +
-                                 "} \n" +
-                                 "else if (조건식2) \n" +
-                                 "{\n" +
-                                 "    // 조건식2가 참일 때 실행되는 코드\n" +
-                                 "} \n" +
-                                 "else\n" +
-                                 "{\n" +
-                                 "    // 모든 조건식이 거짓일 때 실행되는 코드\n" +
-                                 "}",
+            [StageList.Stage4] ="int number = 15;\n\n"
+                                + "if (number > 10) {\n"
+                                + "    Debug.Log(\"숫자는 10보다 큽니다.\");\n"
+                                + "} else {\n"
+                                + "    Debug.Log(\"숫자는 10보다 작거나 같습니다.\");\n"
+                                + "}\n\n"
+                                + "if-else 조건문 구조: 조건식을 평가하고, 참일 경우 if 블록이 실행되고 거짓일 경우 else 블록이 실행됩니다.",
             
-            [StageList.Stage5] = "if-else-if 조건문의 구조:\n" +
-                                 "if (조건식1) \n" +
-                                 "{\n" +
-                                 "    // 조건식1이 참일 때 실행되는 코드\n" +
-                                 "} \n" +
-                                 "else if (조건식2) \n" +
-                                 "{\n" +
-                                 "    // 조건식2가 참일 때 실행되는 코드\n" +
-                                 "} \n" +
-                                 "else\n" +
-                                 "{\n" +
-                                 "    // 모든 조건식이 거짓일 때 실행되는 코드\n" +
-                                 "}\n" +
-                                 "if-elseif의 작동 방식\n" +
-                                 "1. 조건식1이 참일 경우 if(조건식1) 코드 블럭이 실행됩니다.\n" +
-                                 "2. 조건식1이 거짓이고, 조건식2가 참일 경우 elseif(조건식2) 코드 블럭이 실행됩니다.\n" +
-                                 "3. 모든 조건식이 거짓일 때 실행되는 else 코드 블럭이 실행됩니다.\n" +
-                                 "주의사항:\n" +
-                                 "※ 조건식의 순서: 조건식의 순서에 주의해야 합니다. 더 구체적인 조건을 먼저 비교해야 원하는 결과를 얻을 수 있습니다.\n" +
-                                 "※ 중복된 조건식: 여러 개의 else-if 구문을 사용할 때, 중복된 조건식을 작성하지 않도록 주의해야 합니다.\n" +
-                                 "※ else 구문 위치: else 구문은 모든 조건식이 거짓일 때 실행되는 코드 블록을 처리하기 위해 사용합니다.",
+            [StageList.Stage5] = "int score = 85;\n\n"
+                                + "if (score >= 90) {\n"
+                                + "    Debug.Log(\"점수는 A입니다.\");\n"
+                                + "} else if (score >= 80) {\n"
+                                + "    Debug.Log(\"점수는 B입니다.\");\n"
+                                + "} else if (score >= 70) {\n"
+                                + "    Debug.Log(\"점수는 C입니다.\");\n"
+                                + "}\n\n"
+                                + "if-else-if 조건문 구조: 여러 조건을 순차적으로 비교하며, 첫 번째로 참인 조건식의 코드 블록이 실행되고 나머지는 무시됩니다.",
             
-            [StageList.Stage6] =  "for 반복문의 구조:\n" +
-                                  "for (초기식; 조건식; 증감식) \n" +
-                                  "{\n" +
-                                  "    // 반복 실행될 코드\n" +
-                                  "}\n" +
-                                  "초기식: 반복문이 시작될 때 한 번 실행되는 초기화 코드입니다. 반복 변수를 초기화하는 역할을 합니다.\n" +
-                                  "ex ) int i = 0\n" +
-                                  "조건식: 반복문이 실행될 조건을 판단하는 표현식입니다. 조건식이 참인 동안 반복문이 실행됩니다.\n" +
-                                  "ex ) i < value\n" +
-                                  "증감식: 반복문이 한 번 실행된 후에 반복 변수를 증가 또는 감소시키는 역할을 합니다. 후위증가식인 ++를 사용할 수도 있습니다.\n" +
-                                  "※ i++ 은 i = i + 1 과 똑같은 작동을 합니다, i-- 는 i = i - 1 과 똑같은 작동을 합니다.\n" +
-                                  "ex ) i++\n" +
-                                  "for 반복문의 작동 방식:\n" +
-                                  "1. 초기식을 실행한 후에 조건식을 평가합니다. \n" +
-                                  "1-1. 조건식이 참일 경우, 코드 블록 내의 문장들이 실행됩니다.\n" +
-                                  "2. 코드 블록 내의 문장들이 실행된 후에 증감식을 실행합니다. \n" +
-                                  "2-1. 만약 증감식이 후의증가식 ++를 사용하면 반복 변수의 값을 증가시킵니다.\n" +
-                                  "3. 그리고 다시 조건식을 평가하여 반복 실행 또는 종료합니다.\n" +
-                                  "주의사항:\n" +
-                                  "※ 무한 루프: 초기식, 조건식, 증감식을 적절하게 설정하지 않으면 무한 루프에 빠질 수 있습니다. 프로그램이 응답하지 않을 수 있으므로 조심해야 합니다.\n" +
-                                  "※ 반복 횟수: 초기식, 조건식, 증감식을 정확하게 설정하여 원하는 반복 횟수를 얻을 수 있도록 해야 합니다.",
+            [StageList.Stage6] =  "for (int i = 0; i < 5; ++i) {\n"
+                                   + "    Debug.Log(i + \" \");\n"
+                                   + "}\n\n"
+                                    + "int i = 0으로 초기화되며, 반복 변수 i가 0으로 시작합니다.\n"
+                                    + "i < 5로 설정되어, i가 5보다 작을 때까지 반복합니다.\n"
+                                    + "++i로, 반복이 한 번 실행된 후에 i를 1씩 증가시킵니다.",
+    
             
-            [StageList.Stage7] ="while 반복문의 구조:\n" +
-                                "while (조건식) \n" +
-                                "{\n" +
-                                "    // 반복 실행될 코드\n" +
-                                "}\n" +
-                                "조건식: 반복문이 실행될 조건을 판단하는 표현식입니다. 조건식이 참인 동안\n" +
-                                "while 반복문내 코드블럭 이 실행됩니다.\n" +
-                                "주의사항:\n" +
-                                "※ 무한 루프: 조건식이 항상 참으로 평가되는 경우, 무한 루프에 빠질 수 있습니다. 프로그램이 응답하지 않을 수 있으므로 조심해야 합니다.\n" +
-                                "※ 반복 변수의 업데이트: while 반복문에서는 반복 변수의 값을 업데이트해주어야 합니다. 그렇지 않으면 반복문이 끝나지 않을 수 있습니다.\n" +
-                                "※ 초기화와 종료 조건: while 반복문은 초기화와 종료 조건을 명시적으로 처리해야 합니다. 초기화를 제대로 하지 않거나 종료 조건을 갱신하지 않으면 원하는 결과를 얻을 수 없습니다.\n" +
-                                "※ 루프 제어: 반복문 내에서 적절한 루프 제어를 해야 합니다. 필요한 경우 break 문이나 continue 문을 사용하여 반복문을 제어할 수 있습니다.\n" +
-                                "※※※ for 반복문과의 차이점 ※※※:\n" +
-                                "1. 구조: for 반복문은 초기식, 조건식, 증감식을 한 줄에 포함하여 구성하고, while 반복문은 조건식만으로 구성합니다.\n" +
-                                "2. 사용 목적: for 반복문은 반복 횟수가 명확하게 주어진 경우에 주로 사용되고, while 반복문은 특정 조건이 만족되는 동안 반복 작업을 수행해야 할 때 사용됩니다.\n" +
-                                "3. 초기화와 증감: for 반복문은 초기식과 증감식을 명시적으로 포함하여 반복 변수를 초기화하고 업데이트할 수 있습니다. while 반복문은 초기화와 증감을 반복문 이전이나 이후에 따로 처리해주어야 합니다.\n" +
-                                "4. 사용 편의성: for 반복문은 반복 횟수를 명시적으로 지정하고 반복 변수를 관리하는데 편리하며, while 반복문은 조건식이 동적으로 변할 수 있어 유연한 제어가 가능합니다."
+            [StageList.Stage7] = "int i = 0;\n\n"
+                                + "while (i < 5) {\n"
+                                + "    Debug.Log(i + \" \");\n"
+                                + "    ++i; // 반복 변수 업데이트\n"
+                                + "}\n\n"
+                                + "이 예시 코드에서는 초기값이 0인 정수형 변수 i를 사용하여 while 반복문을 구성했습니다.\n"
+                                + "조건식으로 i < 5를 사용하여 5보다 작을 동안 반복하도록 하였고, 코드 블록 내에서는 i를 출력하고 1씩 증가시키는 작업을 수행합니다.\n"
+                                + "이로써 0부터 4까지의 정수가 출력됩니다."
+            
         };
     }
 
@@ -496,6 +437,31 @@ public class UIManager : MonoBehaviour
             GameManager.Instance.StopControllerRepeatHaptic();
             CloseMessageUI(callingMessageUI.gameObject, 0f);
             EnableRadioMessageUI();
+        });
+        
+        clearGameAcceptButton.onClick.AddListener(() =>
+        {
+            // 게임 종료 등록
+             GameManager.Instance.ClearGame();
+        });
+        
+        // 개발자 모드 버튼
+        gameClearButton.onClick.AddListener(() =>
+        {
+            // 스테이지 강제 클리어
+            GameManager.Instance.DebugModeClearAllStage();
+        });
+        
+        // 멀미 방지 크기
+        motionSicknessOnButton.onClick.AddListener(() =>
+        {
+            GameManager.Instance.EnableMotionSickness();
+        });
+            
+        // 멀미 방지 끄기
+        motionSicknessOffButton.onClick.AddListener(() =>
+        {
+            GameManager.Instance.DisableMotionSickness();
         });
     }
 
@@ -678,6 +644,10 @@ public class UIManager : MonoBehaviour
                 break;
             case OptionListUI.hintUI : _lastOptionUi = hintUI.transform; break; 
             case OptionListUI.exitGameUI : _lastOptionUi = exitGameUI.transform; break;
+            case OptionListUI.clearGameUI :
+                _lastOptionUi = clearGameUI.transform;
+                eventArg = CreateClearList;
+                break;
             
             default: return;
         }
@@ -782,6 +752,37 @@ public class UIManager : MonoBehaviour
     {
         this.hintTitleText.text = _hintTitleTexts[stageList];
         this.hintText.text = _hintTexts[stageList];
+    }
+
+    #endregion
+
+    #region 게임 클리어 UI
+
+    private void CreateClearList()
+    {
+        Dictionary<StageList, int> clearStageInfo = GameManager.Instance.GetClearStagesTimer();
+        foreach (var clearStage in clearStageInfo)
+        {
+            string stageText = String.Empty;
+            int time = 0;
+            
+            ClearListObject clearListObject = Instantiate(clearListPrefab, clearListContentRoot).GetComponent<ClearListObject>();
+
+            switch (clearStage.Key)
+            {
+                case StageList.Stage1: stageText = "1 스테이지";          break;
+                case StageList.Stage2: stageText = "2 스테이지";          break;
+                case StageList.Stage3: stageText = "3 스테이지";          break;
+                case StageList.Stage4: stageText = "4 스테이지";          break;
+                case StageList.Stage5: stageText = "5 스테이지";          break;
+                case StageList.Stage6: stageText = "6 스테이지";          break;
+                case StageList.Stage7: stageText = "7 스테이지";          break;
+            }
+            
+            time = clearStage.Value;
+
+            DOTweenManager.DoScaleToBig(clearListObject.transform, () => clearListObject.SetClearListData(stageText, time));
+        }
     }
 
     #endregion

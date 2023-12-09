@@ -73,6 +73,7 @@ public class Stage4 : MonoBehaviour
         RubberyLiquidFX.Play();
         Animation.Play();
         GameManager.Instance.ClearTodoListUpdate(UIManager.StageList.Stage4);
+        GameManager.Instance.CallRadioMessage(21, 22, UIManager.NPC.Boss);
         // Todo: ���� ����
         ConveyorbeltSFX.Play();
         MoterSFX.Play();

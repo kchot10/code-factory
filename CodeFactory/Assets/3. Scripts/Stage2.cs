@@ -77,6 +77,7 @@ public class Stage2 : MonoBehaviour
         Animation2.Play();
         clearAnimation.Play();
         GameManager.Instance.ClearTodoListUpdate(UIManager.StageList.Stage2);
+        GameManager.Instance.CallRadioMessage(15, 16, UIManager.NPC.Boss);
         // Todo: ���� 
         ConveyorbeltSFX.Play();
         MoterSFX.Play();

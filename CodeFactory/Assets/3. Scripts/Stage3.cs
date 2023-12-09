@@ -78,6 +78,7 @@ public class Stage3 : MonoBehaviour
         BigShieldAnim.enabled = true;
         clearAnimation.Play();
         GameManager.Instance.ClearTodoListUpdate(UIManager.StageList.Stage3);
+        GameManager.Instance.CallRadioMessage(18, 19, UIManager.NPC.Boss);
         // Todo: ���� ����
         ConveyorbeltSFX.Play();
         MoterSFX.Play();

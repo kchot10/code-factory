@@ -86,6 +86,7 @@ public class Stage6 : MonoBehaviour
         Animation3.Play();
         StartCoroutine(TextPlay());
         GameManager.Instance.ClearTodoListUpdate(UIManager.StageList.Stage6);
+        GameManager.Instance.CallRadioMessage(27, 28, UIManager.NPC.Boss);
         // Todo: ���� ����
         ConveyorbeltSFX.Play();
         WhirlpoolSFX.Play();

@@ -80,6 +80,7 @@ public class Stage1 : MonoBehaviour
         Animation2.Play();
         Animation3.Play();
         GameManager.Instance.ClearTodoListUpdate(UIManager.StageList.Stage1);
+        GameManager.Instance.CallRadioMessage(12, 13, UIManager.NPC.Boss);
         // Todo: ���� ����
         MoterSFX.Play();
         ConveyorbeltSFX.Play();

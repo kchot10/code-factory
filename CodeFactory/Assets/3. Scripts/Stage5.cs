@@ -80,6 +80,7 @@ public class Stage5 : MonoBehaviour
         Animation2.Play();
         Animation3.Play();
         GameManager.Instance.ClearTodoListUpdate(UIManager.StageList.Stage5);
+        GameManager.Instance.CallRadioMessage(24, 25, UIManager.NPC.Boss);
         // Todo: ���� ����
         CartoonBoingSFX.Play();
         MoterSFX.Play();
