@@ -432,7 +432,7 @@ public class UIManager : MonoBehaviour
         
         exitGameUiButton.onClick.AddListener( () => EnableOptionUI(OptionListUI.exitGameUI));
         exitGameCancelButton.onClick.AddListener( () => CloseMessageUI(exitGameUI, 0.25f));
-        exitGameYesButton.onClick.AddListener(() => GameManager.Instance.ExitGameProgram());
+        exitGameYesButton.onClick.AddListener(() => GameManager.Instance.ExitGame());
         
         callerAcceptButton.onClick.AddListener( () =>
         {
@@ -800,7 +800,7 @@ public class UIManager : MonoBehaviour
     // 페이드 인
     public void FadeIn()
     {
-        fadeImage.DOFade(1f, 7.5f).From(0f).OnComplete(() => GameManager.Instance.ClearGame());
+        fadeImage.DOFade(1f, 7.5f).From(0f).OnComplete(() => GameManager.Instance.ExitGame());
     }
 
     // 페이드 아웃

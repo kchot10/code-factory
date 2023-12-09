@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -251,9 +252,9 @@ public class GameManager : MonoBehaviour
         return _playerStageClearTime;
     }
 
-    public void ClearGame()
+    public void ExitGame()
     {
-        Application.Quit();
+        SceneManager.LoadScene("CodeFactory_OneRoom");
     }
     
     #region VR 컨트롤러 진동
@@ -336,11 +337,5 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
-    
 
-    
-    public void ExitGameProgram()
-    {
-        Application.Quit();
-    }
 }
