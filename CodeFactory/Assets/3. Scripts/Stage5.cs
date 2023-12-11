@@ -18,6 +18,7 @@ public class Stage5 : MonoBehaviour
     private AudioSource MoterSFX;
     private AudioSource SpraySFX;
     private AudioSource SwooshSFX;
+    private AudioSource FailSoundSFX;
 
     [SerializeField] private SoundManager.SoundList CartoonBoingSound;
     [SerializeField] private SoundManager.SoundList MoterSound;
@@ -58,6 +59,13 @@ public class Stage5 : MonoBehaviour
         SwooshSFX.clip = soundManager.GetSoundClip(SwooshSound);
         SwooshSFX.spatialBlend = 1;
         SwooshSFX.loop = true;
+        
+        FailSoundSFX = gameObject.AddComponent<AudioSource>();
+        FailSoundSFX.clip = soundManager.GetSoundClip(SoundManager.SoundList.Fail);
+        FailSoundSFX.spatialBlend = 1;
+        FailSoundSFX.loop = false;
+        FailSoundSFX.playOnAwake = false;
+
     }
 
     public void Process()
@@ -68,6 +76,7 @@ public class Stage5 : MonoBehaviour
         }
         else
         {
+            FailSoundSFX.Play();
             StartCoroutine(CubeFail());
         }
     }

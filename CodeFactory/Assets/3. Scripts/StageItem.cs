@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
@@ -63,6 +64,12 @@ public class StageItem : MonoBehaviour
        OnSelectItemEvent = null;
     }
 
+    // 아이템 놓을 시
+    public void OnDeSelectItem(SelectExitEventArgs targetArgs)
+    {
+        StartCoroutine(nameof(ItemDropProcess));
+    }
+
     // 아이템 애니메이션 컨트롤
     public void ControllerItemAnimation(bool isEnable)
     {
@@ -88,5 +95,13 @@ public class StageItem : MonoBehaviour
     public void PlayItemParticleSystem()
     {
         itemParticleSystem.Play();
+    }
+
+    private IEnumerator ItemDropProcess()
+    {
+        yield return new WaitForSeconds(1f);
+        
+        PlayItemSound();
+        PlayItemParticleSystem();
     }
 }

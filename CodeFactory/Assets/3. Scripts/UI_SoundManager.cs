@@ -6,12 +6,23 @@ using UnityEngine;
 public class UI_SoundManager : MonoBehaviour
 {
 
-    [SerializeField] private AudioSource radioUiAudioSource;
+    public enum TTS_AudioType
+    {
+        RadioMsgAudioSource,
+        GlobalMsgAudioSource,
+    }
+    
+    [SerializeField] private AudioSource radioCallingUiAudioSource;
+    [SerializeField] private AudioSource radioMessageAudioSource;
+    [SerializeField] private AudioSource globalMessageAudioSource;
     [SerializeField] private AudioSource optionUiAudioSource;
 
+    [SerializeField] private AudioClip[] bossTTsClip;
+    
+    
     private void Awake()
     {
-        radioUiAudioSource.loop = true;
+        radioCallingUiAudioSource.loop = true;
         optionUiAudioSource.loop = false;
     }
 
@@ -19,11 +30,11 @@ public class UI_SoundManager : MonoBehaviour
     {
         if (isPlay)
         {
-            radioUiAudioSource.Play();
+            radioCallingUiAudioSource.Play();
         }
         else
         {
-            radioUiAudioSource.Stop();
+            radioCallingUiAudioSource.Stop();
         }
     }
     
@@ -36,6 +47,56 @@ public class UI_SoundManager : MonoBehaviour
         else
         {
             optionUiAudioSource.Stop();
+        }
+    }
+
+    public void ControllerTTS_AudioSource(TTS_AudioType ttsAudioType, int bossTTS_Index, bool isPlay)
+    {
+        if (ttsAudioType == TTS_AudioType.GlobalMsgAudioSource)
+        {
+            ControllerGlobalMessageSound(bossTTS_Index, isPlay);
+        }
+        else if (ttsAudioType == TTS_AudioType.RadioMsgAudioSource)
+        {
+            ControllerRadioMessageSound(bossTTS_Index, isPlay);
+        }
+    }
+
+    private void ControllerRadioMessageSound(int bossTTsIndex, bool isPlay)
+    {
+        if (isPlay)
+        {
+            radioMessageAudioSource.clip = bossTTsClip[bossTTsIndex];
+
+            if (radioMessageAudioSource.isPlaying)
+            {
+                radioMessageAudioSource.Stop();
+            }
+            
+            radioMessageAudioSource.Play();
+        }
+        else
+        {
+            radioMessageAudioSource.Stop();
+        }
+    }
+    
+    private void ControllerGlobalMessageSound(int bossTTsIndex, bool isPlay)
+    {
+        if (isPlay)
+        {
+            globalMessageAudioSource.clip = bossTTsClip[bossTTsIndex];
+
+            if (globalMessageAudioSource.isPlaying)
+            {
+                globalMessageAudioSource.Stop();
+            }
+            
+            globalMessageAudioSource.Play();
+        }
+        else
+        {
+            globalMessageAudioSource.Stop();
         }
     }
 

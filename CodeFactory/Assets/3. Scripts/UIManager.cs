@@ -67,16 +67,16 @@ public class UIManager : MonoBehaviour
     private string[] _bossTextStrings = new string[]
     {
         // 밖
-        "오! 이야기 들었네 이번에 처음 들어온 사원인가?",    // 0
+        "오! 자네가 새로 온 신입인가? 우리 장난감 공장에 온걸 환영하네! 먼 길 오느라 고생했네?",    // 0
         "오른손 조이스틱을 사용하여 움직일 수 있고, 왼손 조이스틱을 사용하여 시점을 돌릴 수 있다네. 한번 둘러보게나",
         "버튼을 눌러보면 문이 열릴걸세, 눌러보고 들어가보게! 공장 안으로 들어가게", 
         
         // 튜토리얼
-        "안에 들어왔는가? 신입이니 아무것도 모를텐데 눈치가 빠르구만",  // 3
+        "벌써 안에 들어왔는가? 신입이니 아무것도 모를텐데 눈치가 빠르구만",  // 3
         "다들 최신식 기기가 어색해서 헤메더군 허허, 내가 그래서 익숙해지라고 튜토리얼을 만들었지!",
-        "밑에 화살표를 따라 진행해보면 된다네, 움직이는 방법은 잘 기억하고 있으리라 믿네",
+        "벽에 있는 화살표를 따라가면 된다네, 움직이는 방법은 잘 기억하고 있으리라 믿네 ",
         "우리 공장에서 상호작용해볼 것들이 꽤 많이 있다네, 익숙해지기 위해 간단한 퍼즐을 준비해 보았다네 한번 풀어보게나",
-        "완벽하네! 문이 열려서 들어가 볼 수 있다네, 들어와서 본격적으로 일을 해보자!",
+        "완벽하네! 문이 열려서 들어가 볼 수 있다네, 들어와서 본격적으로 일을 시작해보게! ",
         
         // 공장 내부
         "이곳이 우리 공장의 메인 구역이라네, 많이 없지만 꽤나 잘 돌아가고 있었지..",  // 8
@@ -86,18 +86,18 @@ public class UIManager : MonoBehaviour
         
         // 스테이지 1
         "'로켓 도색 시작' 블럭을 집어서 기계를 작동시켜 보게나!", // 11
-        "신입이 기술이 엄청난데? 다음부터는 고장이 나서 직접 고쳐야 할걸세.. 다음으로 가게나",
+        "다음부터는 정말 고장난기계이니 직접 고쳐야 할걸세. 다음으로 가게나",
         "장난감들은 직접 만져 볼 수 있다네!, 지루하다면 한두번씩 들어보게나, 재미난 일이 일어날 수도 있네",
         
         // 스테이지 2
         "이번에는 기본중 기본인 변수를 알아볼껄세, 한번 숙지하면 평생 써먹는 기본기중 기본기니 확실하게 해보게나", // 14
-        "굉장하구만! 배우는 속도가 매우 빠른데?, 다음 기계도 고쳐보게나",
+        "굉장하구만! 고치는속도가 매우 빠른데? 다음 기계도 고쳐보게나",
         "오리가 요새 인기가 많더군, 미국에서 강가에 고무오리를 띄우는 행사를 한다더군, 우리 회사 오리가 몇개 있을 껄세",
         
         // 스테이지 3
-        "기본기가 탄탄했던 자들은 전부 오래오래 근무했었지, 지난 기계를 이렇게 빨리 고친걸 보니 오랫동안 같이 일할 수 있겠는데? 열심히 이번것도 고쳐보게나!", // 17
-        "아주 완벽해, 쉽지 않았을텐데 실력자인걸?",
-        "어디 미국의 영웅이 방패만 들고 한 군대와 맞서싸웠다더라고.. 우리도 하나 만들어볼까?",
+        "기본기가 탄탄했던 자들은 모두 오랫동안 근무했었지. 기계를 이렇게 빨리 고친걸 보니 오랫동안 같이 일할 수 있겠는데? 열심히 이번것도 고쳐보게나!", // 17
+        "정말 완벽해. 쉽지 않았을텐데 실력자인걸? ",
+        "어느 미국의 영웅이 방패만 들고 군대와 맞서싸웠다더라고. 우리도 하나 만들어볼까? ",
         
         // 스테이지 4
         "이제부터 우리 공장들의 최고급 장비들이라네, 혹여나 고장낸다면 100년동안 일해야 할껄세, 하하 장난이네 크게 긴장하지 말게나!", // 20
@@ -106,12 +106,12 @@ public class UIManager : MonoBehaviour
         
         // 스테이지 5
         "평범하게 농구공이 들어갔다가 나오니 너무 재미없고 단조롭더라고, 그래서 내가 좀 리모델링을 해보았다네!", // 23
-        "신입 전에 다른데서 일하다가 왔었나? 실력이 엄청난데?",
+        "신입 혹시 전에 다른곳에서 일하다가 왔었나? 실력이 엄청난데? ",
         "농구공을 집어서 던져보게, 트램펄린 위로 올라가지는 말고?",
         
         // 스테이지 6
         "이번에 외지인의 도움을 좀 받아서 순간이동 기술을 좀 배워왔지, 초전도체를 쓴다고 하더라고 우리 공장의 첫 시범으로 써보았다네", // 26
-        "잘했네! 앞으로 하나만 더 하면 퇴근할 수 있다네",
+        "잘했네! 신입이 수고가 많네 ",
         "나무 블럭을 집어보게, 위험할 수 도 있지만 잘만 잡는다면 문제 없을걸세! 아마도..",
         
         // 스테이지 7
@@ -119,9 +119,9 @@ public class UIManager : MonoBehaviour
         "이 어려운 문제를 해냈다니 대단하군",
         
         // Exit
-        "출구 앞에서 오늘 일당을 받아가서 퇴근하면 된다네", // 31
+        "출구 앞에서 오늘 일당을 받고, 퇴근하면 된다네", // 31
         "다른 직원들은 퇴근 안하냐고? 오늘 고장이 나서 늦어진 만큼 일을 더 해야 할걸세 하하하",
-        "눈치보지 말고 일급받고 어서 퇴근하게, 내일도 잘 부탁해",
+        "눈치보지 말고 일당받고 어서 퇴근하게, 내일도 잘 부탁하네",
         "자네같은 직원이 많아야 할텐데 다들 만족스럽지 못해서 아쉽구만"
     };
 
@@ -290,6 +290,7 @@ public class UIManager : MonoBehaviour
     
     private NPC _talkNPC;
     private int _currentTextIndex, _endTextIndex;
+    private UI_SoundManager.TTS_AudioType _currentTTsAudioType;
     private Button _currentMessageButton;
     private TextMeshProUGUI _currentMessageButtonText;
     private GameObject _currentMessageUI;
@@ -493,6 +494,8 @@ public class UIManager : MonoBehaviour
         _currentMessageTextUi.text = string.Empty;
         globalMessageNpcName.text = _npcNames[_talkNPC];
         globalMessageButtonText.text = "계속";
+        _currentTTsAudioType = UI_SoundManager.TTS_AudioType.GlobalMsgAudioSource; // TTS 채널 설정
+
 
         globalMessageButton.gameObject.SetActive(false);  // TextProcess 코루틴에서 활성화 해줌
         ChangeMessageButtonEvent(() => ChangeMessageText(_npcTexts[_talkNPC]));
@@ -515,6 +518,7 @@ public class UIManager : MonoBehaviour
         _currentMessageTextUi.text = string.Empty;
         radioMessageNpcName.text = _npcNames[_talkNPC];
         radioMessageButtonText.text = "계속";
+        _currentTTsAudioType = UI_SoundManager.TTS_AudioType.RadioMsgAudioSource; // TTS 채널 설정
 
         radioMessageButton.gameObject.SetActive(false); // TextProcess 코루틴에서 활성화 해줌
         ChangeMessageButtonEvent(() => ChangeMessageText(_npcTexts[_talkNPC]));
@@ -555,6 +559,7 @@ public class UIManager : MonoBehaviour
     private void ChangeMessageText(string[] textArray)
     {
         StartCoroutine(TextEffectProcess(textArray[_currentTextIndex]));
+        ChangeMessageTTS(_currentTTsAudioType, _currentTextIndex, true); // TTS 음성 파일 재생
 
         if (_currentTextIndex < _endTextIndex)
         {
@@ -563,8 +568,20 @@ public class UIManager : MonoBehaviour
         else
         {
             _currentMessageButtonText.text = "닫기";
-            ChangeMessageButtonEvent(() => CloseMessageUI(_currentMessageUI));
+            
+            // UnityAction 배열을 만들고 클릭 이벤트 추가
+            UnityAction[] buttonEvents = new UnityAction[]
+            {
+                () => CloseMessageUI(_currentMessageUI),
+                () => ChangeMessageTTS(_currentTTsAudioType, -1, false) // TTS 음성 파일 중지
+            };
+            ChangeMessageButtonEvent(buttonEvents);
         }
+    }
+
+    private void ChangeMessageTTS(UI_SoundManager.TTS_AudioType tts_audioType, int bossTTsIndex, bool isPlay)
+    {
+        GameManager.Instance.UISoundManager.ControllerTTS_AudioSource(tts_audioType, bossTTsIndex, isPlay);
     }
 
     private IEnumerator TextEffectProcess(string msg)
@@ -584,10 +601,20 @@ public class UIManager : MonoBehaviour
         _currentMessageButton.gameObject.SetActive(true);
     }
 
+    
     private void ChangeMessageButtonEvent(UnityAction buttonEvent)
     {
         _currentMessageButton.onClick.RemoveAllListeners();
         _currentMessageButton.onClick.AddListener(buttonEvent);
+    }
+    private void ChangeMessageButtonEvent(UnityAction[] buttonEvents)
+    {
+        _currentMessageButton.onClick.RemoveAllListeners();
+
+        foreach (var buttonEvent in buttonEvents)
+        {
+            _currentMessageButton.onClick.AddListener(buttonEvent);
+        }
     }
 
 

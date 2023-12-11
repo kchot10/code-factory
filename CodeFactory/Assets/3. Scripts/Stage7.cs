@@ -20,6 +20,7 @@ public class Stage7 : MonoBehaviour
     private AudioSource WhirlpoolSFX;
     private AudioSource MoterSFX;
     private AudioSource ChainsawLong;
+    private AudioSource FailSoundSFX;
 
     [SerializeField] private SoundManager.SoundList ConveyorbeltSound;
     [SerializeField] private SoundManager.SoundList WhirlpoolSound;
@@ -63,6 +64,12 @@ public class Stage7 : MonoBehaviour
         ChainsawLong.volume = 0.5F;
         ChainsawLong.spatialBlend = 1;
         ChainsawLong.loop = true;
+        
+        FailSoundSFX = gameObject.AddComponent<AudioSource>();
+        FailSoundSFX.clip = soundManager.GetSoundClip(SoundManager.SoundList.Fail);
+        FailSoundSFX.spatialBlend = 1;
+        FailSoundSFX.loop = false;
+        FailSoundSFX.playOnAwake = false;
     }
 
     public void Process()
@@ -73,6 +80,7 @@ public class Stage7 : MonoBehaviour
         }
         else
         {
+            FailSoundSFX.Play();
             StartCoroutine(CubeFail());
         }
     }

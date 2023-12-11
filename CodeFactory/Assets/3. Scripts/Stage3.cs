@@ -18,6 +18,7 @@ public class Stage3 : MonoBehaviour
     private AudioSource ConveyorbeltSFX;
     private AudioSource MoterSFX;
     private AudioSource SpraySFX;
+    private AudioSource FailSoundSFX;
 
     [SerializeField] private SoundManager.SoundList ConveyorbeltSound;
     [SerializeField] private SoundManager.SoundList MoterSound;
@@ -55,6 +56,12 @@ public class Stage3 : MonoBehaviour
         SpraySFX.clip = soundManager.GetSoundClip(SpraySound);
         SpraySFX.spatialBlend = 1;
         SpraySFX.loop = true;
+        
+        FailSoundSFX = gameObject.AddComponent<AudioSource>();
+        FailSoundSFX.clip = soundManager.GetSoundClip(SoundManager.SoundList.Fail);
+        FailSoundSFX.spatialBlend = 1;
+        FailSoundSFX.loop = false;
+        FailSoundSFX.playOnAwake = false;
     }
 
     public void Process()
@@ -65,6 +72,7 @@ public class Stage3 : MonoBehaviour
         }
         else
         {
+            FailSoundSFX.Play();
             StartCoroutine(CubeFail());
         }
     }
